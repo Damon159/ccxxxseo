@@ -1,0 +1,752 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+ 
+<meta name="keywords" content="{#meta_keywords}">
+<title>{#title}</title>
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="{#meta_title}">
+<meta property="og:title" content="{#meta_title}">
+<meta property="og:description" content="{#meta_description}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{#current_url}">
+<meta property="og:image" content="{#products_image_url}">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+ 
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="canonical" href="{#current_url}" />
+<body onload="init();">
+<div class="{#class_name}">{#breadcrumbs}
+{#products_image}
+{#products_description}
+</div> 
+<main class="aotabi-top">
+<div class="kv">
+  <div class="inner">
+    <h1 class="kv--ttl">{#h1title1}</h1>
+  </div>
+  <div class="hash">
+    <div class="hash-content">
+      <div class="hash--tag hash--tag1" data-hash="zekkei" data-gtm-pageview="/aotabi/index_tag_ゼッケイタビ01"><img src="assets/img/top/hash1_kv.svg" title="{#img_title}" alt="{#img_title}"></div>
+      <div class="hash--tag hash--tag2" data-hash="taiken" data-gtm-pageview="/aotabi/index_tag_タイケンタビ01"><img src="assets/img/top/hash2_kv.svg" title="{#img_title}" alt="{#img_title}"></div>
+      <div class="hash--tag hash--tag3" data-hash="toku" data-gtm-pageview="/aotabi/index_tag_トクタビ01"><img src="assets/img/top/hash3_kv.svg" title="{#img_title}" alt="{#img_title}"></div>
+      <div class="hash--tag hash--tag4" data-hash="kisetsu" data-gtm-pageview="/aotabi/index_tag_キセツタビ01"><img src="assets/img/top/hash4_kv.svg" alt="#キセツタビ" width="305" height="117" /></div>
+    </div>
+    <div class="inner">
+      <div class="what--btn">
+        {#products_url}
+      </div>
+    </div>
+  </div>
+  <div class="kv--bg" id="kv_bg">
+    <div id="animation_container">
+      <canvas id="canvas"></canvas>
+      <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:100%; height:100%; position: absolute; left: 0px; top: 0px; display: block;">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="note">
+  <div class="inner">
+    <div class="note-content">
+      
+    </div>
+  </div>
+</div><div class="article" id="article">
+  <div class="inner">
+    <p class="article--head"></p>
+    <div class="cp-content">
+      
+      <div class="cp-bnrs">
+        <div class="cp--bnr">
+          {#products_url}
+        </div>
+        <div class="cp--bnr">
+          {#products_url}
+        </div>
+      </div>
+    </div>
+    <div class="article-tags">
+      <div class="article--tag" data-hash="zekkei" data-gtm-pageview="/aotabi/index_tag_ゼッケイタビ02">#ゼッケイタビ</div>
+      <div class="article--tag" data-hash="taiken" data-gtm-pageview="/aotabi/index_tag_タイケンタビ02">#タイケンタビ</div>
+      <div class="article--tag" data-hash="toku" data-gtm-pageview="/aotabi/index_tag_トクタビ02">#トクタビ</div>
+      <div class="article--tag" data-hash="kisetsu" data-gtm-pageview="/aotabi/index_tag_キセツタビ02">#キセツタビ</div>
+      <div class="article--tag" data-hash="clear">選択を解除</div>
+    </div>
+    <div class="article-content">
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.09.20</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu,zekkei">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+            </div>
+            <p class="article--date">2022.09.09</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu,taiken">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+              <span data-hash="taiken">#タイケンタビ</span>
+            </div>
+            <p class="article--date">2022.08.31</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.08.31</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu,zekkei">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+            </div>
+            <p class="article--date">2022.08.22</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}
+{#rand_title}<br>
+</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.08.10</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="taiken">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="taiken">#タイケンタビ</span>
+            </div>
+            <p class="article--date">2022.08.02</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="toku">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="toku">#トクタビ</span>
+            </div>
+            <p class="article--date">2022.07.20</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="zekkei">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+            
+<h1>{#h1title2}</h1>
+</div>
+            <p class="article--date">2022.07.20</p>
+          </div>
+          
+        
+<h5>{#h5title1}</h5>
+{#googleDes}
+</div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            
+{#back_tag_1}
+{#youtube}
+{#view}
+</div>
+            <p class="article--date">2022.07.20</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.07.15</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.07.15</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="taiken">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="taiken">#タイケンタビ</span>
+            
+<h3>{#h3title1}</h3>
+{#googleDes}
+</div>
+            <p class="article--date">2022.07.01</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.07.08</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="taiken">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="taiken">#タイケンタビ</span>
+            </div>
+            <p class="article--date">2022.06.30</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="taiken">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="taiken">#タイケンタビ</span>
+            </div>
+            <p class="article--date">2022.06.30</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="zekkei">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+            </div>
+            <p class="article--date">2022.06.22</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="taiken">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="taiken">#タイケンタビ</span>
+            </div>
+            <p class="article--date">2022.06.20</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.06.20</p>
+          </div>
+          
+        
+<h5>{#h5title2}</h5>
+{#googleDes}
+</div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.06.10</p>
+          </div>
+          
+        
+{#google_images}
+</div>
+      </article>
+      <article data-hash="zekkei">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+            </div>
+            <p class="article--date">2022.05.20</p>
+          
+<h2>{#h2title1}</h2>
+{#googleDes}
+</div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_21"><img src="assets/img/top/kv21.jpg" alt="話題のスポット満載！ アートな京都・岡崎へ" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.05.20</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu,zekkei">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_38"><img src="assets/img/top/kv38.jpg" alt="一度は見たい感動風景 立山黒部アルペンルート" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+            </div>
+            <p class="article--date">2022.05.10</p>
+          
+<h2>{#h2title2}</h2>
+{#googleDes}
+</div>
+          
+        </div>
+      </article>
+      <article data-hash="zekkei">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+            </div>
+            <p class="article--date">2022.04.28</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="taiken">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="taiken">#タイケンタビ</span>
+            </div>
+            <p class="article--date">2022.04.15</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.04.15</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.04.05</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu,taiken">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_14"><img src="assets/img/top/kv14.jpg" alt="「ここにずっといたい」と思った。みかんと美食の町・西予市" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+              <span data-hash="taiken">#タイケンタビ</span>
+            
+{#reviews}<br>
+</div>
+            <p class="article--date">2022.03.24</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            
+<div class="related {#class_name_1}">
+</div></div>
+            <p class="article--date">2022.03.18</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_36"><img src="assets/img/top/kv36.jpg" alt="神戸のボタニカルショップ&カフェ♪ 注目の複合施設や多肉植物・ドライフラワーで人気のお店も" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.03.14</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.03.11</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="toku,taiken">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_11"><img src="assets/img/top/kv11.jpg" alt="年を取るということは、心若くあること。" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="toku">#トクタビ</span>
+              <span data-hash="taiken">#タイケンタビ</span>
+            </div>
+            <p class="article--date">2022.03.01</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="taiken,zekkei">
+        <div>
+          <div class="article--thumb">
+            {#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+              <span data-hash="taiken">#タイケンタビ</span>
+            </div>
+            <p class="article--date">2022.03.01</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="toku,zekkei">
+        <div>
+          <div class="article--thumb">{#products_url}
+<h2>{#h2title3}</h2>
+{#googleDes}
+</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="toku">#トクタビ</span>
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+            </div>
+            <p class="article--date">2022.03.01</p>
+          
+<h2>{#h2title4}</h2>
+{#googleDes}
+</div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu,taiken">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_10"><img src="assets/img/top/kv10.jpg" alt="ウサギの島・お酒・温泉！青春時代に一度は行くべき【広島県・竹原市】" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+              <span data-hash="taiken">#タイケンタビ</span>
+            </div>
+            <p class="article--date">2022.02.28</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            
+<h4>{#h4title1}</h4>
+{#googleDes}
+</div>
+            <p class="article--date">2022.02.25</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="taiken">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_01"><img src="assets/img/top/kv01.jpg" alt="旅行好きのドリーム!? 長距離列車「WEST EXPRESS 銀河」、贅沢空間の【7つの秘密】" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="taiken">#タイケンタビ</span>
+            
+<h3>{#h3title2}</h3>
+{#googleDes}
+<h4>{#h4title2}</h4>
+{#googleDes}
+</div>
+            <p class="article--date">2022.01.27</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="toku">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="toku">#トクタビ</span>
+            </div>
+            <p class="article--date">2022.01.27</p>
+          </div>
+          
+        
+<h1>{#h1title3}</h1>
+</div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_35"><img src="assets/img/top/kv35.jpg" alt="大阪・大正の非日常空間" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.02.18</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            
+<h3>{#h3title3}</h3>
+{#googleDes}
+</div>
+            <p class="article--date">2022.02.15</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_33"><img src="assets/img/top/kv33.jpg" alt="金沢の「旬」スポット5選" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.02.10</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu,taiken">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+              <span data-hash="taiken">#タイケンタビ</span>
+            
+<h4>{#h4title3}</h4>
+{#googleDes}
+</div>
+            <p class="article--date">2022.01.27</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="zekkei,kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="zekkei">#ゼッケイタビ</span>
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.01.27</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.01.27</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb"><a href="{#href#}" data-gtm-act="link" data-gtm-lab="/click_count/aotabi/index/banner_feature_32"><img src="assets/img/top/kv32.jpg" alt="絶景、温泉、クルージング……グルメ＋αを楽しむ 京都・大阪・神戸" width="500" height="253" /></a></div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.01.27</p>
+          </div>
+          
+        </div>
+      </article>
+      <article data-hash="kisetsu">
+        <div>
+          <div class="article--thumb">{#products_url}</div>
+          <div class="article-info">
+            <div class="article-hash">
+              <span data-hash="kisetsu">#キセツタビ</span>
+            </div>
+            <p class="article--date">2022.01.27</p>
+          </div>
+          
+        </div>
+      </article>
+    </div>
+    <div class="article-tags">
+      <div class="article--tag" data-hash="zekkei" data-gtm-pageview="/aotabi/index_tag_ゼッケイタビ02">#ゼッケイタビ</div>
+      <div class="article--tag" data-hash="taiken" data-gtm-pageview="/aotabi/index_tag_タイケンタビ02">#タイケンタビ</div>
+      <div class="article--tag" data-hash="toku" data-gtm-pageview="/aotabi/index_tag_トクタビ02">#トクタビ</div>
+      <div class="article--tag" data-hash="kisetsu" data-gtm-pageview="/aotabi/index_tag_キセツタビ02">#キセツタビ
+<h5>{#h5title3}</h5>
+{#googleDes}
+</div>
+      <div class="article--tag" data-hash="clear">選択を解除</div>
+    </div>
+  </div>
+</div><div class="what" id="what">
+  <div class="inner">
+    <div class="what-content">
+      <div class="what-box">
+        <h2 class="what--head">{#h2title5}</h2>
+{#googleDes}
+        
+      </div>
+      <div class="what--bg what--bg1"></div>
+      <div class="what--bg what--bg2"></div>
+      <div class="what--bg what--bg3"></div>
+    </div>
+  </div>
+</div>
+ 
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-odekake">
+        
+        <ul class="footer-odekake--link">
+          <li>{#products_url}</li>
+          <li>{#products_url}</li>
+          <li>{#products_url}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-west">
+        
+        <p class="footer-west--txt">西日本旅客鉃道株式会社<br/>West Japan Railway Company</p>
+      </div>
+      <div class="footer-txt">
+        <p>このサイトに掲載されている情報はJR西日本が提供しております。</p>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+ 
+</main>
+ 
+ 
+ 
+ 
+</body>
+</html>

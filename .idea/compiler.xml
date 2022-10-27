@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gaobug" />
+        <module name="ccxxxseo" />
+        <module name="greatSeo" />
+        <module name="xxxtest - 副本" />
+        <module name="ccxxxseoold" />
+        <module name="ccxxxseo-main" />
+        <module name="xxxx" />
+        <module name="xxxtest" />
+        <module name="xxxseo" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ccxxxseo" options="-parameters" />
+      <module name="ccxxxseo-main" options="-parameters" />
+      <module name="ccxxxseoold" options="-parameters" />
+      <module name="gaobug" options="-parameters" />
+      <module name="greatSeo" options="-parameters" />
+      <module name="xxxseo" options="-parameters" />
+      <module name="xxxtest" options="-parameters" />
+      <module name="xxxtest - 副本" options="-parameters" />
+      <module name="xxxx" options="-parameters" />
+    </option>
+  </component>
+</project>

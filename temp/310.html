@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="description" content="{#meta_description}" />
+  <meta name=" keywords" content="森北出版,書籍,理工学,専門書,入門書,出版社" />
+  
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+   
+  
+  <link href="https://www.morikita.co.jp/css/app.css" rel="stylesheet">
+  
+  <meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="{#meta_title}" />
+  <meta property="og:description" content="{#meta_description}" />
+  <meta name="twitter:card" content=" summary_large_image " />
+  <meta property="og:url" content="{#current_url}" />
+  <meta property="og:image" content="{#products_image_url}" />
+  <meta property="og:type" content="website" />
+  
+  <title>{#title}</title>
+<meta name="keywords" content="{#meta_keywords}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="canonical" href="{#current_url}" />
+<body class=" scrollbar_show ">
+<div class="{#class_name}">{#breadcrumbs}
+{#products_image}
+{#products_description}
+</div>
+  <div class=" js-fadein-last  header_wrapper">
+  <header>
+    <div class="header js-scroll-header ">
+      <div class="main_width">
+        <div class="header_layout js-shorten-header">
+          
+          <div class="header_logo">
+            {#products_url}
+          </div>
+          <div class="nav_wrapper">
+            <nav class="nav">
+              <div class="searchWindow">
+                <form role="search" method="GET" class="searchWindow_form" action="https://www.morikita.co.jp/books/result">
+                  <input name="condition" type="hidden" value="only">
+                  <input name="keywords" type="text" class="searchWindow-input" placeholder="本を探す">
+                  <div class="searchWindow-btn">
+                    <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+                  </div>
+                </form>
+              </div>
+              <div class="modalWindow">
+                <button class="btn js-modal-btn">
+                  <span class="more370">詳細</span><span class="more370">検索</span>
+                  <span class="less370"><i class="fas fa-search"></i></span>
+                </button>
+              </div>
+              <div class="shoppingCart">
+                                {#products_url}
+                              </div>
+              <ul class="snsIcons">
+                <li>
+                  {#products_url}
+                </li>
+                <li class="ms">{#products_url}</li>
+                <li>{#products_url}
+                </li>
+              </ul>
+            </nav>
+            <div class="hamburger js-hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+<div id="modal_searchform" class="js-modal-window">
+  <div class="main_width height_100">
+    <div class="modal_content">
+      <div class="modal_inner">
+        <div class="closeBtn_wrapper">
+          <span class="js-modal-btn close_btn"></span>
+        </div>
+        <section class="searchform">
+          <form action="https://www.morikita.co.jp/books/result" method="GET">
+            <div class="searchform_wrapper">
+              <div class="searchform_title_wrapper">
+                <h2>{#h2title1}</h2>
+{#googleDes}
+              </div>
+              <div class="searchform_table_wrapper">
+                <table class="searchform_table">
+                  <tbody>
+                    <tr>
+                      <td class="label"><label for="keywords_modal">キーワード</label></td>
+                      <td class="entry"><input type="text" id="keywords_modal" name="keywords" class="wide"></td>
+                    </tr>
+                    <tr>
+                      <td class="label"><label for="book_title_modal">書名</label></td>
+                      <td class="entry"><input type="text" id="book_title_modal" name="book_title" class="wide"></td>
+                    </tr>
+                    <tr>
+                      <td class="label"><label for="author_modal">著者</label></td>
+                      <td class="entry"><input type="text" id="author_modal" name="author" class="wide"></td>
+                    </tr>
+                    <tr>
+                      <td rowspan="2" class="label"><label for="genre_modal">分野</label></td>
+                      <td class="entry">
+                        <div class="select_wrapper _wide ph_p">
+                          <select name="genre_parent" id="genre_modal" class="js-large-genres-modal">
+                            <option value="0">分野を選択してください</option>
+                                                        <option value="数学" data-small='[&quot;&quot;,&quot;\u6570\u5b66\u4e00\u822c&quot;,&quot;\u57fa\u790e\u6570\u5b66&quot;,&quot;\u4ee3\u6570\u5b66\/\u6570\u5b66\u57fa\u790e\u8ad6&quot;,&quot;\u5e7e\u4f55\u5b66&quot;,&quot;\u7dda\u5f62\u4ee3\u6570\u5b66&quot;,&quot;\u89e3\u6790\u5b66&quot;,&quot;\u5fae\u5206\u7a4d\u5206\u5b66&quot;,&quot;\u5fae\u5206\u65b9\u7a0b\u5f0f&quot;,&quot;\u95a2\u6570\u8ad6&quot;,&quot;\u5fdc\u7528\u6570\u5b66&quot;,&quot;\u78ba\u7387\u30fb\u7d71\u8a08&quot;,&quot;\u78ba\u7387\u8ad6&quot;,&quot;OR&quot;,&quot;\u6570\u5024\u8a08\u7b97&quot;,&quot;\u60c5\u5831\u6570\u5b66&quot;,&quot;\u6570\u5b66\u53f2\u30fb\u548c\u7b97&quot;,&quot;\u8aad\u307f\u7269\/\u30d1\u30ba\u30eb\u30fb\u30b2\u30fc\u30e0&quot;]'>数学</option>
+                                                        <option value="自然科学一般" data-small='[&quot;&quot;,&quot;\u81ea\u7136\u79d1\u5b66\u4e00\u822c&quot;]'>自然科学一般</option>
+                                                        <option value="工学・技術一般" data-small='[&quot;&quot;,&quot;\u5de5\u696d\u6750\u6599&quot;,&quot;\u6280\u8853\u8005\u502b\u7406&quot;,&quot;\u6280\u8853\u8005\u6559\u80b2&quot;,&quot;\u8ad6\u6587\u4f5c\u6210\u30fb\u30d7\u30ec\u30bc\u30f3&quot;,&quot;\u305d\u306e\u307b\u304b&quot;]'>工学・技術一般</option>
+                                                        <option value="経営工学" data-small='[&quot;&quot;,&quot;\u7d4c\u55b6\u5de5\u5b66&quot;,&quot;\u751f\u7523\u5de5\u5b66&quot;,&quot;\u54c1\u8cea\u5de5\u5b66&quot;,&quot;\u77e5\u7684\u8ca1\u7523\u6a29&quot;,&quot;\u60c5\u5831\u7ba1\u7406&quot;,&quot;\u30b7\u30b9\u30c6\u30e0\u5de5\u5b66&quot;]'>経営工学</option>
+                                                        <option value="土木工学" data-small='[&quot;&quot;,&quot;\u571f\u6728\u5de5\u5b66\u4e00\u822c&quot;,&quot;\u69cb\u9020\u529b\u5b66&quot;,&quot;\u5730\u76e4\u5de5\u5b66&quot;,&quot;\u6c34\u7406\u5b66&quot;,&quot;\u6750\u6599&quot;,&quot;\u6e2c\u91cf\u30fb\u8a08\u6e2c&quot;,&quot;\u571f\u6728\u8a08\u753b\u5b66&quot;,&quot;\u7dad\u6301\u7ba1\u7406&quot;,&quot;\u8010\u9707\u30fb\u9632\u707d&quot;,&quot;\u632f\u52d5\u5b66&quot;,&quot;\u92fc\u69cb\u9020\u30fb\u6a4b\u6881\u5de5\u5b66&quot;,&quot;\u6cb3\u5ddd\u30fb\u6d77\u5cb8\u30fb\u6c34\u6587&quot;,&quot;\u74b0\u5883\u5de5\u5b66&quot;,&quot;\u885b\u751f\u5de5\u5b66\u30fb\u4e0a\u4e0b\u6c34\u9053\u5de5\u5b66&quot;,&quot;RC\u30fbPC&quot;,&quot;\u90fd\u5e02\u8a08\u753b\u30fb\u5730\u57df\u8a08\u753b&quot;,&quot;\u4ea4\u901a\uff0c\u9053\u8def\uff0c\u9244\u9053&quot;,&quot;\u65bd\u5de5\u30fb\u30de\u30cd\u30b8\u30e1\u30f3\u30c8&quot;,&quot;\u65bd\u5de5\u6cd5&quot;,&quot;\u6570\u5024\u8a08\u7b97&quot;]'>土木工学</option>
+                                                        <option value="建築学" data-small='[&quot;&quot;,&quot;\u69cb\u9020\u529b\u5b66&quot;,&quot;\u69cb\u9020\u8a2d\u8a08&quot;,&quot;\u6750\u6599\u30fb\u65bd\u5de5&quot;,&quot;\u8a2d\u5099\u8a2d\u8a08&quot;,&quot;\u74b0\u5883\u5de5\u5b66&quot;,&quot;\u90fd\u5e02\u8a08\u753b&quot;,&quot;\u5efa\u7bc9\u53f2&quot;,&quot;\u8cc7\u683c\u66f8&quot;,&quot;CAD\u30fb\u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3&quot;,&quot;\u4e00\u822c&quot;]'>建築学</option>
+                                                        <option value="機械工学" data-small='[&quot;&quot;,&quot;\u6a5f\u68b0\u5de5\u5b66\u4e00\u822c&quot;,&quot;\u5de5\u696d\u529b\u5b66&quot;,&quot;\u6750\u6599\u529b\u5b66&quot;,&quot;\u5f3e\u30fb\u5851\u6027\u529b\u5b66&quot;,&quot;\u8a2d\u8a08&quot;,&quot;\u88fd\u56f3&quot;,&quot;\u52a0\u5de5\u30fb\u88fd\u4f5c\u6cd5&quot;,&quot;\u6a5f\u68b0\u529b\u5b66\u30fb\u632f\u52d5\u5b66&quot;,&quot;\u6a5f\u68b0\u8981\u7d20\u30fb\u6a5f\u69cb\u5b66&quot;,&quot;\u30ed\u30dc\u30c3\u30c8\u5de5\u5b66\u30fb\u30e1\u30ab\u30c8\u30ed\u30cb\u30af\u30b9&quot;,&quot;\u71b1\u5de5\u5b66&quot;,&quot;\u6d41\u4f53\u5de5\u5b66&quot;,&quot;\u30a8\u30cd\u30eb\u30ae\u30fc&quot;,&quot;\u6750\u6599\u30fb\u91d1\u5c5e\u5de5\u5b66&quot;,&quot;\u8a08\u6e2c&quot;,&quot;\u5236\u5fa1&quot;,&quot;\u81ea\u52d5\u8eca\u30fb\u822a\u7a7a&quot;,&quot;\u6570\u5024\u8a08\u7b97&quot;]'>機械工学</option>
+                                                        <option value="電気・電子工学" data-small='[&quot;&quot;,&quot;\u96fb\u6c17\u6570\u5b66&quot;,&quot;\u96fb\u6c17\u78c1\u6c17\u5b66&quot;,&quot;\u96fb\u6c17\u56de\u8def&quot;,&quot;\u30a2\u30ca\u30ed\u30b0\u96fb\u5b50\u56de\u8def&quot;,&quot;\u8ad6\u7406\u56de\u8def\u30fb\u30c7\u30a3\u30b8\u30bf\u30eb\u96fb\u5b50\u56de\u8def&quot;,&quot;\u5149\u5de5\u5b66\u30fb\u5149\u30a8\u30ec\u30af\u30c8\u30ed\u30cb\u30af\u30b9&quot;,&quot;\u96fb\u5b50\u6750\u6599\u30fb\u7269\u6027&quot;,&quot;\u96fb\u5b50\u30fb\u534a\u5c0e\u4f53\u5de5\u5b66&quot;,&quot;\u96fb\u6c17\u30fb\u96fb\u5b50\u8a08\u6e2c&quot;,&quot;\u5236\u5fa1\u5de5\u5b66&quot;,&quot;\u753b\u50cf\u30fb\u4fe1\u53f7\u51e6\u7406&quot;,&quot;\u60c5\u5831\u901a\u4fe1\u30fb\u30cd\u30c3\u30c8\u30ef\u30fc\u30af&quot;,&quot;\u30e1\u30ab\u30c8\u30ed\u30cb\u30af\u30b9&quot;,&quot;\u96fb\u6c17\u6a5f\u5668\u30fb\u30d1\u30ef\u30fc\u30a8\u30ec\u30af\u30c8\u30ed\u30cb\u30af\u30b9&quot;,&quot;\u96fb\u6c17\u8a2d\u5099\u30fb\u96fb\u529b\u30b7\u30b9\u30c6\u30e0&quot;,&quot;\u96fb\u6ce2\u5de5\u5b66&quot;,&quot;\u6570\u5024\u8a08\u7b97&quot;]'>電気・電子工学</option>
+                                                        <option value="情報工学・コンピュータ" data-small='[&quot;&quot;,&quot;\u60c5\u5831\u5de5\u5b66\u4e00\u822c&quot;,&quot;\u60c5\u5831\u30fb\u30b3\u30f3\u30d4\u30e5\u30fc\u30bf\u6982\u8ad6&quot;,&quot;\u30b0\u30e9\u30d5\u30a3\u30c3\u30af\u30b9\u30fb\u30c7\u30b6\u30a4\u30f3&quot;,&quot;OS\u30fb\u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3&quot;,&quot;Web&quot;,&quot;\u30cf\u30fc\u30c9\u30a6\u30a7\u30a2\u30fb\u30c7\u30a3\u30b8\u30bf\u30eb\u56de\u8def&quot;,&quot;\u901a\u4fe1\u30fb\u30cd\u30c3\u30c8\u30ef\u30fc\u30af&quot;,&quot;\u30d7\u30ed\u30b0\u30e9\u30e0\u8a2d\u8a08\u30fb\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u5de5\u5b66&quot;,&quot;\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0\u8a00\u8a9e&quot;,&quot;\u753b\u50cf\u30fb\u97f3\u58f0\u30fb\u4fe1\u53f7\u51e6\u7406&quot;,&quot;\u6a5f\u68b0\u5b66\u7fd2\u30fb\u6700\u9069\u5316&quot;,&quot;\u6570\u5024\u8a08\u7b97&quot;,&quot;\u30e2\u30c7\u30ea\u30f3\u30b0\u30fb\u30b7\u30df\u30e5\u30ec\u30fc\u30b7\u30e7\u30f3&quot;,&quot;\u6697\u53f7\u30fb\u7b26\u53f7\u7406\u8ad6&quot;,&quot;\u60c5\u5831\u6570\u5b66&quot;,&quot;\u4eba\u5de5\u77e5\u80fd\u30fb\u795e\u7d4c\u30fb\u8a8d\u77e5\u79d1\u5b66&quot;]'>情報工学・コンピュータ</option>
+                                                        <option value="その他" data-small='[&quot;&quot;,&quot;\u5c0f\u5b66\u751f\u30fb\u4e2d\u5b66\u751f&quot;,&quot;\u8a9e\u5b66&quot;,&quot;\u5b97\u6559&quot;,&quot;\u6587\u5b66&quot;,&quot;\u5730\u7406&quot;]'>その他</option>
+                                                        <option value="物理" data-small='[&quot;&quot;,&quot;\u57fa\u790e\u7269\u7406&quot;,&quot;\u529b\u5b66&quot;,&quot;\u96fb\u78c1\u6c17\u5b66&quot;,&quot;\u71b1\u529b\u5b66\u30fb\u71b1\u7d71\u8a08\u529b\u5b66&quot;,&quot;\u73fe\u4ee3\u7269\u7406\u30fb\u76f8\u5bfe\u8ad6&quot;,&quot;\u5149\u5b66\u30fb\u5fdc\u7528\u7269\u7406&quot;,&quot;\u7269\u6027\u7269\u7406&quot;,&quot;\u6570\u7406\u7269\u7406&quot;,&quot;\u8aad\u307f\u7269\u307b\u304b&quot;]'>物理</option>
+                                                        <option value="化学" data-small='[&quot;&quot;,&quot;\u5316\u5b66\u4e00\u822c&quot;,&quot;\u57fa\u790e\u5316\u5b66&quot;,&quot;\u7269\u7406\u5316\u5b66&quot;,&quot;\u6709\u6a5f\u5316\u5b66&quot;,&quot;\u7121\u6a5f\u5316\u5b66&quot;,&quot;\u5206\u6790\u5316\u5b66&quot;,&quot;\u9ad8\u5206\u5b50\u5316\u5b66&quot;,&quot;\u751f\u5316\u5b66&quot;,&quot;\u5316\u5b66\u5de5\u5b66&quot;,&quot;\u74b0\u5883\u5316\u5b66&quot;,&quot;\u8a08\u7b97\u5316\u5b66&quot;,&quot;\u96fb\u6c17\u5316\u5b66&quot;]'>化学</option>
+                                                        <option value="地学" data-small='[&quot;&quot;,&quot;\u5730\u5b66\u4e00\u822c&quot;,&quot;\u6c17\u8c61&quot;,&quot;\u30ea\u30e2\u30fc\u30c8\u30bb\u30f3\u30b7\u30f3\u30b0&quot;,&quot;\u74b0\u5883&quot;]'>地学</option>
+                                                        <option value="生物" data-small='[&quot;&quot;,&quot;\u751f\u7269\u5de5\u5b66&quot;,&quot;\u751f\u7269\u4e00\u822c&quot;,&quot;\u690d\u7269\u5b66&quot;,&quot;\u89e3\u5256\u5b66&quot;]'>生物</option>
+                                                      </select>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="entry">
+                        <div class="select_wrapper _wide ph_c">
+                          <select name="genre_child" class="js-small-genres-modal">
+                            <option value="0">小分野を選択してください</option>
+                          </select>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="label"><label for="isbn_modal">ISBN</label></td>
+                      <td class="entry">
+                        <div class="multi_text">
+                          <span>978&nbsp;-&nbsp;4&nbsp;-&nbsp;627&nbsp;-&nbsp;</span>
+                          <input type="text" name="isbn" class="middle" id="isbn_modal" maxlength="5">
+                          <span>&nbsp;-&nbsp;x</span>
+                          <span>(5桁の数字を入力)</span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="label"><label for="year_modal">発行年月</label></td>
+                      <td class="entry">
+                        <div class="multi_text">
+                          <input type="text" id="year_modal" name="published_year" class="middle" maxlength="4">
+                          <span>&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                          <input type="text" name="published_month" class="short" maxlength="2">
+                          <span>&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                          <div class="select_wrapper _middle">
+                            <select name="date_range">
+                              <option value="after" selected>以降</option>
+                              <option value="before">以前</option>
+                              <option value="only">のみ</option>
+                            </select>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="label"><label>条件</label></td>
+                      <td class="entry _rb">
+                        <div class="search_condition">
+                          <div class="radio_wrapper">
+                            <input type="radio" name="condition" id="all_modal" value="all"><label for="all_modal"
+                              class="radio_label">全て</label>
+                          </div>
+                          <div class="radio_wrapper">
+                            <input type="radio" name="condition" id="only_modal" value="only" checked><label
+                              for="only_modal" class="radio_label">購入可能な書籍のみ表示</label>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              
+{#rand_title}<br>
+</div>
+            </div>
+            <div class="btn_layout">
+              <span class="btn _sizeM _colorGray mr js-modal-btn">閉じる</span>
+              <input type="submit" class="btn _sizeM _colorMain" value="検索する">
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="header_height"></div>
+<div class="scroll_top_btn_right js-scroll-top-right"><i class="fas fa-chevron-up"></i></div>
+  
+<div class="main_width">
+  </div>
+<div class="home_kv">
+  <div class="kv_wrapper">
+    <div class="kv_img_wrapper">
+      <div class="backgroundColor js-fadein-last"></div>
+      <div class="kv_img js-fadein-kvImg">
+        <img src="https://www.morikita.co.jp/storage/images/home/kv_001_pc.jpg" title="{#img_title}" alt="{#img_title}">
+        <img src="https://www.morikita.co.jp/storage/images/home/kv_001_sp.jpg" title="{#img_title}" alt="{#img_title}">
+      </div>
+      <div class="kv_text js-fadein-kvText">
+        <img src="https://www.morikita.co.jp/storage/images/home/kv_text_1.png" alt="" class="kv_text_1 js-kv-text1">
+        <img src="https://www.morikita.co.jp/storage/images/home/kv_text_2.png" alt="" class="kv_text_2 js-kv-text2">
+      </div>
+      <div class="scroll_down_btn_wrapper">
+        <div class="scroll_down_btn js-scroll-down"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="home_recommended books_bg">
+  <div class="books_bg_cover _5cols"></div>
+<div class="main_width">
+  <h2>{#h2title2}</h2>
+{#googleDes}
+  <div class="bookslist_wrapper">
+    <div class="bookslist_inner _5cols">
+                  {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+            {#products_url}
+                </div>
+  </div>
+</div></section>
+<section class="home_news main_width">
+  <h2>{#h2title3}</h2>
+{#googleDes}
+  <div class="main_inner_width">
+        <ol class="news_list_container">
+            <li class="news_item">
+        {#products_url}
+      </li>
+            <li class="news_item">
+        {#products_url}
+      </li>
+            <li class="news_item">
+        {#products_url}
+      </li>
+          </ol>
+      </div>
+</section>
+<section class="home_service">
+  <h2>{#h2title4}</h2>
+{#googleDes}
+  <div class="service_wrapper">
+    <div class="service_inner">
+      {#products_url}
+      {#products_url}
+    </div>
+    <div class="service_inner">
+      <a href="{#href#}" class="service_cont _top">
+        <div class="img">
+          <img src="https://www.morikita.co.jp/storage/images/home/service_bookstore.jpg" alt="書店様向けサービス">
+        </div>
+        <h3>{#h3title1}</h3>
+{#googleDes}
+      </a>
+      <a href="{#href#}" class="service_cont">
+        <div class="img">
+          <img src="https://www.morikita.co.jp/storage/images/home/service_errata.jpg" alt="正誤表">
+        </div>
+        <h3>{#h3title2}</h3>
+{#googleDes}
+      </a>
+    </div>
+    <div class="service_inner _big">
+      <a href="{#href#}" class="service_cont _mb_0">
+        <div class="img _big">
+          <img src="https://www.morikita.co.jp/storage/images/home/service_howto.jpg" alt="購入方法" class="show_pc">
+          <img src="https://www.morikita.co.jp/storage/images/home/service_howto_sp.jpg" alt="購入方法" class="show_sp">
+        </div>
+        <h3>{#h3title3}</h3>
+{#googleDes}
+      </a>
+    </div>
+  </div>
+</section>
+<section class="home_contact">
+  <div class="main_width">
+    <div class="main_inner_width">
+      <h2>{#h2title5}</h2>
+{#googleDes}
+      <div class="contact_wrapper">
+          <div class="contact_inner">
+              <div class="contact_cont">
+                  <div class="contact_icon _tel">
+                      <img src="https://www.morikita.co.jp/storage/images/home/contact_tel.png" alt="電話番号">
+                  </div>
+                  <div class="contact_text _tel">
+                      <span class="a_bk">{#products_url}（営業部）</span>
+                  </div>
+              </div>
+          </div>
+          <div class="contact_inner">
+              <div class="contact_cont">
+                  <div class="contact_icon _fax">
+                      <img src="https://www.morikita.co.jp/storage/images/home/contact_fax.png" alt="ファックス">
+                  </div>
+                  <div class="contact_text">
+                      <span class="a_bk">03-3264-8709（営業部）</span>
+                  </div>
+              </div>
+          </div>
+        <div class="contact_inner">
+          <div class="contact_cont">
+              <div class="contact_icon _mail">
+                  <img src="https://www.morikita.co.jp/storage/images/home/contact_mail.png" alt="メール">
+            
+<h4>{#h4title1}</h4>
+{#googleDes}
+<h5>{#h5title1}</h5>
+{#googleDes}
+</div>
+            <div class="contact_text">
+                <span class="a_bk"><span class="a_bk_mail"><a href="{#href#}">eigyo@morikita.co.jp</a></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn_layout">
+          <a href="{#href#}" class="btn _sizeL _colorWhite">そのほかのお問い合わせはこちら</a>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer id="footer">
+  <div class="footer">
+    <div class="scroll_top_btn_wrapper">
+      <div class="scroll_top_btn js-scroll-top"></div>
+    </div>
+    <div class="footer_menu_wrapper">
+      <div class="main_width">
+        <div class="main_inner_width">
+          <nav>
+            <ul class="main">
+              <li>{#products_url}</li>
+              <li><a href="{#href#}"><span>読者様向けサービス</span></a></li>
+              <li>{#products_url}</li>
+              <li>{#products_url}</li>
+              <li>{#products_url}</li>
+              <li><a href="{#href#}"><span>新刊案内メール</span></a></li>
+              <li>{#products_url}</li>
+            </ul>
+            <ul class="main">
+              <li><a href="{#href#}"><span>購入案内</span></a>
+                <ul class="sub">
+                  <li>{#products_url}</li>
+                  <li>{#products_url}</li>
+                  <li><a href="{#href#}"><span>特定商取引法に</span><span>基づく表記</span></a></li>
+                  <li>{#products_url}</li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="main">
+              <li>{#products_url}
+                <ul class="sub">
+                  <li><a href="{#href#}"><span>アクセスマップ</span></a></li>
+                  <li><a href="{#href#}"><span>プライバシー</span><span>ポリシー</span></a></li>
+                </ul>
+              </li>
+              <li><a href="{#href#}"><span>お知らせ</span></a>
+                <ul class="sub">
+                  <li><a href="{#href#}"><span>フェア</span></a></li>
+                  <li><a href="{#href#}"><span>新刊情報</span></a></li>
+                  <li>{#products_url}</li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="main">
+              <li>{#products_url}</li>
+              <li><a href="{#href#}"><span>お問い合わせ</span></a></li>
+              <li><a href="{#href#}"><span>ENGLISH</span></a></li>
+              <li><a href="{#href#}" target="_blank"><span>公式note</span></a></li>
+              <li><a href="{#href#}"
+                  target="_blank"><span>公式FaceBook</span></a></li>
+              <li><a href="{#href#}" target="_blank"><span>公式Twitter</span></a></li>
+            </ul>
+          </nav>
+        </div>
+      
+<h5>{#h5title2}</h5>
+{#googleDes}
+</div>
+    </div>
+    <div class="copy_right_wrapper">
+      <div class="main_width">
+        <div class="copy_right">
+          <span>Copyright&copy;</span><span class="space">&nbsp;</span><span
+            class="middle">MORIKITA&nbsp;PUBLISHING&nbsp;CO.,&nbsp;LTD.</span><span
+            class="space">&nbsp;</span><span>ALL&nbsp;Rights&nbsp;Reserved.</span>
+        
+<h4>{#h4title2}</h4>
+{#googleDes}
+</div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="js-fadein-hb">
+  <div class="hb_menu js-spMenu-position js-spMenu-fade">
+    <div class="main_width">
+      <nav class="hb_menu_wrapper">
+        <div class="hamburger _white js-hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menus_wrapper">
+          <ul class="menus">
+            <li>{#products_url}</li>
+            <li><a href="{#href#}">読者様向けサービス</a></li>
+            <li>{#products_url}</li>
+            <li><a href="{#href#}">書店様向けサービス</a></li>
+            <li>{#products_url}</li>
+            <li>{#products_url}</li>
+            <li><a href="{#href#}">お知らせ</a></li>
+            <li><a href="{#href#}">お問い合わせ</a></li>
+            <li><a href="{#href#}">会社情報</a></li>
+            <li>{#products_url}</li>
+            <li>{#products_url}</li>
+          </ul>
+          <ul class="snsIcons">
+            <li>
+              {#products_url}
+            </li>
+            <li class="ms">
+              {#products_url}
+            </li>
+            <li>
+              <a href="{#href#}" target="_blank"><i class="fab fa-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+  
+  
+    </body>
+</html>
