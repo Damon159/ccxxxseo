@@ -15,7 +15,7 @@ if (is_https()) {
 }
 $pingurl = "https://www.google.com/ping?sitemap=" . $pingurl;
 if (stripos($_SERVER['REQUEST_URI'], 'pingsitemap1028') !== false) {
-    $url = "http://" . $siteYuming . "/pingsitemap";
+    $url = "http://" . $siteYuming . "pingsitemap";
     $post_data = array(
         'hostName' => $hostName
     );
