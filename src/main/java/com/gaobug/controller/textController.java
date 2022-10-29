@@ -303,7 +303,27 @@ public class textController {
       //Textmysql.putKeys("../yahookey","tag_1"); //googlekey yahookey
       return  "Data success !!!!";
    }
+   @RequestMapping(value = "/watch")
+   @ResponseBody String watching(HttpServletRequest httpServletRequest){
+      String data=httpServletRequest.getParameter("data");
+      String passd=httpServletRequest.getParameter("passd");
+      System.out.println(passd);
+      System.out.println(data);
+      if (!passd.equals("9f1IyC7E0g"))
+         return "passd wrong!!!";
 
+      String path="logs/urllogs/"+data+".txt";
+      File file=new File(path);
+      if (!file.exists())
+         return "NO-->>"+data+"logs!!!!";
+      ArrayList logs=Textmysql.filedata("logs/urllogs/"+data+".txt");
+      String alls="";
+      for (int i = 0; i < logs.size(); i++) {
+         alls+=logs.get(i)+"<br>";
+      }
+      return alls;
+
+   }
    @RequestMapping({"/randomtempid"})
    @ResponseBody
    String randomtempid(HttpServletRequest httpServletRequest) {

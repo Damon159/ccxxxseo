@@ -3,23 +3,29 @@ package com.gaobug.utils;
 import com.alibaba.fastjson.JSON;
 import com.gaobug.controller.textController;
 import com.gaobug.seo.GreatSeo;
-import org.apache.commons.io.FileUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.io.FileUtils;
 
-public class ReadTemp{
+public class ReadTemp {
    static ProduceSitemap produceSitemap = new ProduceSitemap();
    static ReadFile readFile = new ReadFile();
    static Map tempMap;
-   static List hostList;
+   List hostList = HandleGoogle.host();
    static textController te;
    static Map mapConfig;
    static ProductLdJson productLdJson;
+   static Map mapProductMap;
+   static Map htmlMap;
 
    public static String readTempWriteInto(GreatSeo greatSeo, String yuMing, String yuMingCanShu) {
       yuMingCanShu = yuMingCanShu.replace("/", "");
@@ -28,48 +34,56 @@ public class ReadTemp{
 
       try {
          mapGreatSeo = convert(greatSeo);
-      } catch (Exception var15) {
-         var15.printStackTrace();
+      } catch (Exception var17) {
+         var17.printStackTrace();
       }
 
       String tempYuming = yuMing + yuMingCanShu;
       tempYuming = replaceWwwOrIndex(tempYuming);
       int tempCount = getTempCount(tempYuming);
       tempContext = (String)tempMap.get(tempCount + ".html");
+      int t;
       if (tempContext == null) {
-         int i = 0;
+         t = 1;
 
          while(tempContext == null) {
-            ++i;
-            tempCount = getTempCount(yuMing + i);
+            ++t;
+            tempCount = getTempCount(yuMing + t);
             tempContext = (String)tempMap.get(tempCount + ".html");
             if (tempContext != null) {
+               break;
+            }
+
+            if (t > 50) {
+               tempCount = getTempCount(yuMing + t);
+               tempContext = (String)tempMap.get("10.html");
                break;
             }
          }
       }
 
       try {
+         t = 1;
+
          while(greatSeo == null) {
-            yuMingCanShu = getIndex(yuMing, yuMingCanShu, 1);
-            GetYumingTodo getYumingTodo = new GetYumingTodo();
-             /*
-            新增判断文件是否存在
-             */
-            String path =GetYumingTodo.getSiteYuming(yuMingCanShu, yuMing);
-            File file=new File(path);
-            if (file.exists()){
-               String contextJson = FileUtils.readFileToString(new File(path), "UTF-8");
+            try {
+               ++t;
+               yuMingCanShu = getIndex(yuMing, yuMingCanShu, t);
+               GetYumingTodo getYumingTodo = new GetYumingTodo();
+               String contextJson = FileUtils.readFileToString(new File(GetYumingTodo.getSiteYuming(yuMingCanShu, yuMing)), "UTF-8");
                greatSeo = (GreatSeo)JSON.parseObject(contextJson, GreatSeo.class);
+            } catch (Exception var16) {
+               var16.printStackTrace();
             }
-            if (greatSeo != null) {
+
+            if (greatSeo != null || t > 20) {
                break;
             }
 
             try {
                mapGreatSeo = convert(greatSeo);
-            } catch (Exception var14) {
-               var14.printStackTrace();
+            } catch (Exception var15) {
+               var15.printStackTrace();
             }
          }
 
@@ -77,10 +91,11 @@ public class ReadTemp{
          List google_desP_list = Collections.singletonList(((Map)mapGreatSeo).get("google_desP"));
          String[] productUlr = tempContext.split("\\{#products_url}");
          List productList = getSomeSiteUlr(yuMing, yuMingCanShu, productUlr.length + 1);
-         productList = produceHtmlAUrl(productList, productUlr.length + 1, yuMing, yuMingCanShu);
+         productList = produceHtmlAUrl1(productList, productUlr.length + 1, yuMing, yuMingCanShu);
          tempContext = spitTempProductUrl(tempContext, productList);
 
          try {
+            tempContext=tempContext.replaceAll("\\{#json_data}","");
             tempContext = tempContext.replaceAll("\\{#href}", yuMingCanShu);
             tempContext = tempContext.replaceAll("\\{#href#}", yuMingCanShu);
             tempContext = tempContext.replaceAll("\\{#reviews}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("product_related") == null ? "" : ((Map)mapGreatSeo).get("product_related") + ""));
@@ -92,13 +107,13 @@ public class ReadTemp{
             tempdes = tempdes.replaceAll("</h2>", "");
             tempContext = tempContext.replaceAll("\\{#products_description}", Matcher.quoteReplacement(tempdes));
             tempContext = tempContext.replaceAll("\\{#breadcrumbs}", breadCrumbs(yuMingCanShu, (String)((Map)mapGreatSeo).get("product_cate1"), (String)((Map)mapGreatSeo).get("product_cate2"), (String)((Map)mapGreatSeo).get("product_cate3"), (String)((Map)mapGreatSeo).get("product_name"), yuMing));
-            /*原json
-             String breadcrumbsLdJson=Matcher.quoteReplacement(ProductLdJson.breadCrumbsLdJson(yuMingCanShu, (String)((Map)mapGreatSeo).get("product_cate1"), (String)((Map)mapGreatSeo).get("product_cate2"), (String)((Map)mapGreatSeo).get("product_cate3"), (String)((Map)mapGreatSeo).get("product_name"), yuMing));
-             tempContext = tempContext.replaceAll("\\{#productLdJson}", Matcher.quoteReplacement(ProductLdJson.productJson(greatSeo, yuMing + "/?" + yuMingCanShu)));
-            * */
-            //tempContext=tempContext.replaceAll("\\{#json_data}","");
+            //tempContext = tempContext.replaceAll("\\{#breadcrumbs}", "");
+            ProductLdJson var10002 = productLdJson;
+            //tempContext = tempContext.replaceAll("\\{#breadcrumbsLdJson}", Matcher.quoteReplacement(ProductLdJson.breadCrumbsLdJson(yuMingCanShu, (String)((Map)mapGreatSeo).get("product_cate1"), (String)((Map)mapGreatSeo).get("product_cate2"), (String)((Map)mapGreatSeo).get("product_cate3"), (String)((Map)mapGreatSeo).get("product_name"), yuMing)));
             tempContext = tempContext.replaceAll("\\{#breadcrumbsLdJson}", "");
-            tempContext=tempContext.replaceAll("\\{#productLdJson}","");
+            var10002 = productLdJson;
+            //tempContext = tempContext.replaceAll("\\{#productLdJson}", Matcher.quoteReplacement(ProductLdJson.productJson(greatSeo, yuMing + "/?" + yuMingCanShu)));
+            tempContext = tempContext.replaceAll("\\{#productLdJson}", "");
             tempContext = tempContext.replaceAll("\\{#img_title}", (String)((Map)mapGreatSeo).get("product_name"));
             tempContext = tempContext.replaceAll("\\{#h1title\\d}", ((Map)mapGreatSeo).get("product_name") == null ? "" : (String)((Map)mapGreatSeo).get("product_name"));
             String[] hArray = tempContext.split("\\{#h\\dtitle\\d}");
@@ -109,14 +124,14 @@ public class ReadTemp{
             tempContext = tempContext.replaceAll("\\{#googleDes}", "");
             tempContext = tempContext.replaceAll("\\{#title}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("product_name") == null ? "" : (String)((Map)mapGreatSeo).get("product_name")));
             tempContext = tempContext.replaceAll("\\{#shell_link}", "");
-            tempContext = tempContext.replaceAll("\\{#rand_title}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("google_img_sum") == null ? "" : (String)((Map)mapGreatSeo).get("google_img_sum")));
+            tempContext = tempContext.replaceAll("\\{#remain_tag_1}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("google_img_sum") == null ? "" : (String)((Map)mapGreatSeo).get("google_img_sum")));
             tempContext = tempContext.replaceAll("\\{#img_title}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("product_name") == null ? "" : (String)((Map)mapGreatSeo).get("product_name")));
             tempContext = tempContext.replaceAll("\\{#meta_keywords}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_cate2") + ((Map)mapGreatSeo).get("product_name")));
             tempContext = tempContext.replaceAll("\\{#current_url}", yuMingCanShu + yuMing);
             tempContext = tempContext.replaceAll("\\{#products_image_url}", ((Map)mapGreatSeo).get("product_main_img") == null ? ((Map)mapGreatSeo).get("product_main_img") + "" : "");
             tempContext = tempContext.replaceAll("\\{#google_images}", Matcher.quoteReplacement(String.valueOf(((Map)mapGreatSeo).get("google_img"))));
             if (((Map)mapGreatSeo).get("google_desH") != "[]") {
-               tempContext = tempContext.replaceAll("\\{#back_tag_1}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_name") + greatSeo.getGoogle_desH().get(0) + " " + ((Map)mapGreatSeo).get("product_cate2") + ((Map)mapGreatSeo).get("product_main_img") == null ? "" : replaceImage(((Map)mapGreatSeo).get("product_main_img") + "", ((Map)mapGreatSeo).get("product_name") + "")));
+               tempContext = tempContext.replaceAll("\\{#remain_tag_2}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_name") + greatSeo.getGoogle_desH().get(0) + " " + ((Map)mapGreatSeo).get("product_cate2") + ((Map)mapGreatSeo).get("product_main_img") == null ? "" : replaceImage(((Map)mapGreatSeo).get("product_main_img") + "", ((Map)mapGreatSeo).get("product_name") + "")));
                tempContext = tempContext.replaceAll("\\{#meta_keywords}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_name") + greatSeo.getGoogle_desH().get(0) + ((Map)mapGreatSeo).get("product_cate3")));
                tempContext = tempContext.replaceAll("\\{#meta_title}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_name") + greatSeo.getGoogle_desH().get(0) + " " + ((Map)mapGreatSeo).get("product_cate2")));
             } else {
@@ -140,14 +155,13 @@ public class ReadTemp{
             tempContext = tempContext.replaceAll("<h5></h5>", "");
             tempContext = tempContext.replaceAll("\\{#view}", Matcher.quoteReplacement(dealWithYouTobe(greatSeo.getUbView(), yuMing) == "" ? "" : dealWithYouTobe(greatSeo.getUbView(), yuMing)));
             tempContext = tempContext.replaceAll("\\{#youtube}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("ub") == null ? "" : (String)((Map)mapGreatSeo).get("ub")));
-         } catch (Exception var16) {
+         } catch (Exception var18) {
             System.out.println("报错readTempWriteInto：模板：" + tempCount + "路径：" + yuMing);
-            var16.printStackTrace();
          }
-      } catch (IOException var17) {
+      } catch (Exception var19) {
          System.out.println("报错readTempWriteInto-最后try：模板：" + tempCount + "路径：" + yuMing);
-         var17.printStackTrace();
       }
+      tempContext = tempContext.replaceAll("\\{#remain_tag_2}","");
 
       return tempContext;
    }
@@ -253,7 +267,7 @@ public class ReadTemp{
             yuMingCanShu = yuMingCanShu.substring(3);
             yuMingCanShu = yuMingCanShu.substring(0, yuMingCanShu.length() - 5);
             webKey = "";
-            Pattern pattern = Pattern.compile("([a-z]){4}");
+            Pattern pattern = Pattern.compile("([a-z]){7}");
 
             for(Matcher matcher = pattern.matcher(yuMingCanShu); matcher.find(); webKey = webKey + matcher.group()) {
             }
@@ -318,7 +332,6 @@ public class ReadTemp{
       textController var10000 = te;
       List list1 = textController.TempIdList;
       String startThree = ProduceSitemap.shellThree(yuMing + yuMingCanShu);
-      //int newProductId = true;
       int newProductId = getConfig(yuMingCanShu) + i * 12 + getConfig(yuMingCanShu);
       newProductId %= list1.size();
       ProduceSitemap produceSitemap = new ProduceSitemap();
@@ -328,21 +341,8 @@ public class ReadTemp{
    }
 
    public static String GetOneSameUrl(String yuMing, String cateName, String yuMingCanShu) {
-     // int newProductId = true;
-      String[] keys = (String[])((String[])mapConfig.keySet().toArray(new String[0]));
-      int tempCount = getConfig(cateName);
-      int configCount = tempCount % mapConfig.size();
-      String webKey = keys[configCount];
-      int newProductId = tempCount * configCount + getConfig(cateName) + getConfig(cateName);
-      if (newProductId > 300000) {
-         newProductId %= 30000;
-      }
-
-      String yuMingTemp = replaceWwwOrIndex(yuMing);
-      ProduceSitemap var10000 = produceSitemap;
-      String md5GetWeb = ProduceSitemap.string2MD5(yuMingTemp + webKey + newProductId);
-      String startThree = ProduceSitemap.shellThree(yuMingTemp + yuMingCanShu);
-      String url = yuMing + "/?" + startThree + webKey + newProductId + md5GetWeb;
+      String cateStr = getIndex(yuMing + yuMingCanShu, cateName, 1);
+      String url = yuMing + "/?" + cateStr;
       return url;
    }
 
@@ -350,7 +350,7 @@ public class ReadTemp{
       String webKey = "";
       yuMing = yuMing.substring(3);
       yuMing = yuMing.substring(0, yuMing.length() - 5);
-      Pattern pattern = Pattern.compile("([a-z]){4}");
+      Pattern pattern = Pattern.compile("([a-z]){7}");
 
       for(Matcher matcher = pattern.matcher(yuMing); matcher.find(); webKey = webKey + matcher.group()) {
       }
@@ -363,7 +363,6 @@ public class ReadTemp{
 
       ProduceSitemap var10000 = ReadTemp.produceSitemap;
       Map mapConfig = ProduceSitemap.readConfigWeb();
-      //int newProductId = true;
       String[] keys = (String[])((String[])mapConfig.keySet().toArray(new String[0]));
       int tempCount = getConfig(yuMing);
       int configCount = tempCount % mapConfig.size();
@@ -405,13 +404,10 @@ public class ReadTemp{
                   a = getIndex(yuMing, YuMingCanShu, 1);
                   pathTemp = GetYumingTodo.getSiteYuming(a, yuMing);
                   var10000 = readFile;
-                  File file=new File(pathTemp);//新增文件判读是否存在
-                  if (file.exists()) { //10.14修改内容
-                     contextJson = ReadFile.readText(new File(pathTemp), yuMing, YuMingCanShu);
-                     greatSeo = (GreatSeo) JSON.parseObject(contextJson, GreatSeo.class);
-                     if (greatSeo != null) {
-                        break;
-                     }
+                  contextJson = ReadFile.readText(new File(pathTemp), yuMing, YuMingCanShu);
+                  greatSeo = (GreatSeo)JSON.parseObject(contextJson, GreatSeo.class);
+                  if (greatSeo != null) {
+                     break;
                   }
                }
             }
@@ -420,7 +416,10 @@ public class ReadTemp{
             greatSeoList.add(greatSeo);
             a = "";
             if (!greatSeo.getProduct_name().equals((Object)null) || !greatSeo.getProduct_name().equals("")) {
+               //cc
                a = "<a href=\"" + list.get(i) + "\" title=\"" + greatSeo.getProduct_name() + "\" >" + greatSeo.getProduct_name() + "</a>";
+               //ll
+               a = "\"" + list.get(i) + "\" title=\"" + greatSeo.getProduct_name() + "\" >" + greatSeo.getProduct_name()+"\"";
             }
 
             listA.add(a);
@@ -431,7 +430,7 @@ public class ReadTemp{
             pathTemp = getIndex(yuMing, YuMingCanShu, j);
             contextJson = GetYumingTodo.getSiteYuming(pathTemp, yuMing);
             var10000 = readFile;
-             contextJson = ReadFile.readText(new File(contextJson), yuMing, YuMingCanShu);
+            contextJson = ReadFile.readText(new File(contextJson), yuMing, YuMingCanShu);
             GreatSeo greatSeo1 = (GreatSeo)JSON.parseObject(contextJson, GreatSeo.class);
             greatSeo1.setRemarks((String)list.get(j));
             greatSeoList.add(greatSeo1);
@@ -439,14 +438,142 @@ public class ReadTemp{
             if (!greatSeo1.getProduct_name().equals((Object)null) || !greatSeo1.getProduct_name().equals("")) {
                if (((String)list.get(j)).indexOf("/?") < -1) {
                   String tempa = "/?" + list.get(j);
-                  a = "<a href=\"" + tempa + "\" title=\"" + greatSeo1.getProduct_name() + "\" >" + greatSeo1.getProduct_name() + "</a>";
+                  //cc
+                  //a = "<a href=\"" + tempa + "\" title=\"" + greatSeo1.getProduct_name() + "\" >" + greatSeo1.getProduct_name() + "</a>";
+                  //ll
+                  a = "href=\"" + tempa + "\" title=\"" + greatSeo1.getProduct_name() + "\" >" + greatSeo1.getProduct_name() + "\"";
+               } else {
+                  //cc
+                  //a = "<a href=\"" + list.get(j) + "\" title=\"" + greatSeo1.getProduct_name() + "\" >" + greatSeo1.getProduct_name() + "</a>";
+                  //ll
+                  a = "href=\"" + list.get(j) + "\" title=\"" + greatSeo1.getProduct_name() + "\" >" + greatSeo1.getProduct_name() + "\"";
+               }
+            }
+
+            listA.add(a);
+         } catch (Exception var16) {
+            listA.add("");
+         }
+      }
+
+      return listA;
+   }
+
+   public static List produceHtmlAUrl1(List list, int count, String yuMing, String YuMingCanShu) {
+      List<GreatSeo> greatSeoList = new ArrayList();
+      GetYumingTodo getYumingTodo = new GetYumingTodo();
+      List listA = new ArrayList();
+      String lastsiteCharacter = "";
+      int j = 0;
+
+      String a;
+      String mapKeySite;
+      String pathTemp;
+
+      ReadFile var10000;
+      try {
+         for(int i = 0; i < list.size(); ++i) {
+            String getInexYumingCanShu;
+            String contextJson;
+            GreatSeo greatSeo;
+            try {
+               a = "";
+               j = i;
+               lastsiteCharacter = (String)list.get(i);
+               lastsiteCharacter = lastsiteCharacter.substring(lastsiteCharacter.indexOf("?") + 1);
+               mapKeySite = "test";
+
+               try {
+                  mapKeySite = lastsiteCharacter.substring(0, lastsiteCharacter.length() - 5);
+                  mapKeySite = mapKeySite.substring(3);
+               } catch (Exception var17) {
+                  var17.printStackTrace();
+               }
+
+               if (mapProductMap.get(mapKeySite) != null && mapProductMap.size() < 2000000) {
+                  if (mapKeySite != "test") {
+                     a = "<a href=\"" + list.get(i) + "\" title=\"" + mapProductMap.get(mapKeySite) + "\" >" + mapProductMap.get(mapKeySite) + "</a>";
+                     listA.add(a);
+                  }
+               } else {
+                  pathTemp = GetYumingTodo.getSiteYuming(lastsiteCharacter, yuMing);
+                  var10000 = readFile;
+                  contextJson = ReadFile.readText(new File(pathTemp), yuMing, YuMingCanShu);
+                  greatSeo = (GreatSeo)JSON.parseObject(contextJson, GreatSeo.class);
+                  int t = 1;
+                  if (greatSeo == null) {
+                     while(greatSeo == null) {
+                        ++t;
+                        contextJson = "";
+                        getInexYumingCanShu = getIndex(yuMing, YuMingCanShu, t);
+                        pathTemp = GetYumingTodo.getSiteYuming(getInexYumingCanShu, yuMing);
+                        var10000 = readFile;
+                        contextJson = ReadFile.readText(new File(pathTemp), yuMing, YuMingCanShu);
+                        greatSeo = (GreatSeo)JSON.parseObject(contextJson, GreatSeo.class);
+                        if (greatSeo != null || t > 50) {
+                           break;
+                        }
+                     }
+                  }
+
+                  greatSeo.setRemarks((String)list.get(i));
+                  greatSeoList.add(greatSeo);
+                  if (!greatSeo.getProduct_name().equals((Object)null) || !greatSeo.getProduct_name().equals("")) {
+                     if (mapKeySite != "test") {
+                        mapProductMap.put(mapKeySite, greatSeo.getProduct_name());
+                     }
+
+                     a = "<a href=\"" + list.get(i) + "\" title=\"" + greatSeo.getProduct_name() + "\" >" + greatSeo.getProduct_name() + "</a>";
+                  }
+
+                  listA.add(a);
+               }
+            } catch (Exception var20) {
+               try {
+                  mapKeySite = getIndex(yuMing, YuMingCanShu, j);
+                  pathTemp = GetYumingTodo.getSiteYuming(mapKeySite, yuMing);
+                  var10000 = readFile;
+                  contextJson = ReadFile.readText(new File(pathTemp), yuMing, YuMingCanShu);
+                  greatSeo = (GreatSeo)JSON.parseObject(contextJson, GreatSeo.class);
+                  greatSeo.setRemarks((String)list.get(j));
+                  greatSeoList.add(greatSeo);
+                  a = "";
+                  if (!greatSeo.getProduct_name().equals((Object)null) || !greatSeo.getProduct_name().equals("")) {
+                     if (((String)list.get(j)).indexOf("/?") < -1) {
+                        getInexYumingCanShu = "/?" + list.get(j);
+                        a = "<a href=\"" + getInexYumingCanShu + "\" title=\"" + greatSeo.getProduct_name() + "\" >" + greatSeo.getProduct_name() + "</a>";
+                     } else {
+                        a = "<a href=\"" + list.get(j) + "\" title=\"" + greatSeo.getProduct_name() + "\" >" + greatSeo.getProduct_name() + "</a>";
+                     }
+                  }
+
+                  listA.add(a);
+               } catch (Exception var19) {
+                  listA.add("");
+               }
+            }
+         }
+      } catch (Exception var21) {
+         try {
+            a = getIndex(yuMing, YuMingCanShu, j);
+            mapKeySite = GetYumingTodo.getSiteYuming(a, yuMing);
+            var10000 = readFile;
+            pathTemp = ReadFile.readText(new File(mapKeySite), yuMing, YuMingCanShu);
+            GreatSeo greatSeo1 = (GreatSeo)JSON.parseObject(pathTemp, GreatSeo.class);
+            greatSeo1.setRemarks((String)list.get(j));
+            greatSeoList.add(greatSeo1);
+
+            if (!greatSeo1.getProduct_name().equals((Object)null) || !greatSeo1.getProduct_name().equals("")) {
+               if (((String)list.get(j)).indexOf("/?") < -1) {
+                  a = "/?" + list.get(j);
+                  a = "<a href=\"" + a + "\" title=\"" + greatSeo1.getProduct_name() + "\" >" + greatSeo1.getProduct_name() + "</a>";
                } else {
                   a = "<a href=\"" + list.get(j) + "\" title=\"" + greatSeo1.getProduct_name() + "\" >" + greatSeo1.getProduct_name() + "</a>";
                }
             }
 
             listA.add(a);
-         } catch (Exception var16) {
+         } catch (Exception var18) {
             listA.add("");
          }
       }
@@ -490,7 +617,7 @@ public class ReadTemp{
                }
             } catch (Exception var6) {
                returnSumHtmlContent = returnSumHtmlContent + tempUrlArry[i] + "";
-               System.out.println("spitTempProductUrl:");
+               System.out.println("spitTempProductUrl:" + productList.size() + "tempUrlArry:" + tempUrlArry.length);
             }
          }
 
@@ -550,10 +677,11 @@ public class ReadTemp{
    static {
       ReadFile var10000 = readFile;
       tempMap = ReadFile.getTempValue();
-      hostList = HandleGoogle.host();
       te = new textController();
       ProduceSitemap var0 = produceSitemap;
       mapConfig = ProduceSitemap.readConfigWeb();
       productLdJson = new ProductLdJson();
+      mapProductMap = new HashMap();
+      htmlMap = new HashMap();
    }
 }
