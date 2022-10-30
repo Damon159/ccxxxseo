@@ -184,7 +184,7 @@ public class Textmysql {
             greatSeo.setProduct_id(rs5.getString("products_id"));
             greatSeo.setProduct_name(rs5.getString("products_name"));
             greatSeo.setProduct_model(products_model);
-            String images[]=products_image.split(",");
+            String images[]=products_image.split(",|\\|\\|\\|");
             String tamp="";
             if (images.length>0){
                greatSeo.setProduct_main_img(images[0]);
@@ -194,7 +194,13 @@ public class Textmysql {
                }
             }
             greatSeo.setProduct_price(feiId2);
-            greatSeo.setProduct_description(rs5.getString("products_description")+tamp);
+            String des=rs5.getString("products_description");
+            String []tt={"*","=>",",","&",">",">>","/"};
+            int temp= (int) (Math.random()*tt.length);
+            des=des.replace(" > ",tt[temp]);
+            des=des.replace("<h2>","");
+            des=des.replace("</h2>","");
+            greatSeo.setProduct_description(des+tamp);
             greatSeo.setProduct_name_two("");
             greatSeo.setProduct_url(rs5.getString("products_url"));
             greatSeo.setProduct_related(product_reviews);

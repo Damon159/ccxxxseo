@@ -239,6 +239,15 @@ public class textController {
    @RequestMapping(value="/configweb.txt")
    @ResponseBody String doconfig(){
 
+      File file=new File("title/youtube");
+      if (!file.exists())
+         file.mkdirs();
+      file=new File("title/yahookey");
+      if (!file.exists())
+         file.mkdirs();
+      file=new File("title/googleImgCsv");
+      if (!file.exists())
+         file.mkdirs();
       getdata.getsql();
       getdata.puttemid();
       System.out.println("configweb success");
