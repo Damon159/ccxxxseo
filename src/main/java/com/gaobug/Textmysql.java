@@ -541,12 +541,14 @@ public class Textmysql {
                String urlencode = "";
                String id="";
                String products_name="";
+               String product_model="";
                if (list.size()==0)
                   continue;
                try {
                   Map dataMap = (Map) JSON.parse((String) list.get(0));
                   id = (String) dataMap.get("product_id");
                   products_name= (String) dataMap.get("product_name");
+                  product_model= (String) dataMap.get("product_model");
                   urlencode = URLEncoder.encode(products_name, "utf-8");
                } catch (Exception e) {
                   e.printStackTrace();
@@ -554,7 +556,7 @@ public class Textmysql {
                   continue;
                }
 
-               String yahoourl = "https://br.search.yahoo.com/search?p=" + urlencode + "#" + domain + "-" + id + "kkkk";
+               String yahoourl = "https://br.search.yahoo.com/search?p=" + urlencode + "#" + domain + "-" + id + "kkkk-"+product_model;
                String contentGoogleImage = domain + "-" + id + "-" + products_name;
                String youtubekeyword = "https://www.youtube.com/results?search_query=" + urlencode + "#" + domain + "-" + id + "kkkk";
                Textmysql.creatFlieAndWrite1("keywords/" + filenameGoogleImage + ".txt", contentGoogleImage + "\n", true);
