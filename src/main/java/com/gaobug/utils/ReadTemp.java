@@ -153,8 +153,11 @@ public class ReadTemp {
             tempContext = tempContext.replaceAll("<h2></h2>", "");
             tempContext = tempContext.replaceAll("<h4></h4>", "");
             tempContext = tempContext.replaceAll("<h5></h5>", "");
+
             tempContext = tempContext.replaceAll("\\{#view}", Matcher.quoteReplacement(dealWithYouTobe(greatSeo.getUbView(), yuMing) == "" ? "" : dealWithYouTobe(greatSeo.getUbView(), yuMing)));
             tempContext = tempContext.replaceAll("\\{#youtube}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("ub") == null ? "" : (String)((Map)mapGreatSeo).get("ub")));
+            tempContext = tempContext.replaceAll("\\{#youtube}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("ub") == null ? "" : (String)((Map)mapGreatSeo).get("ub")));
+            tempContext = tempContext.replaceAll("\\{#rand_title}", "");
          } catch (Exception var18) {
             System.out.println("报错readTempWriteInto：模板：" + tempCount + "路径：" + yuMing);
          }
@@ -267,7 +270,7 @@ public class ReadTemp {
             yuMingCanShu = yuMingCanShu.substring(3);
             yuMingCanShu = yuMingCanShu.substring(0, yuMingCanShu.length() - 5);
             webKey = "";
-            Pattern pattern = Pattern.compile("([a-z]){7}");
+            Pattern pattern = Pattern.compile("([a-z]){4}");
 
             for(Matcher matcher = pattern.matcher(yuMingCanShu); matcher.find(); webKey = webKey + matcher.group()) {
             }
@@ -350,7 +353,7 @@ public class ReadTemp {
       String webKey = "";
       yuMing = yuMing.substring(3);
       yuMing = yuMing.substring(0, yuMing.length() - 5);
-      Pattern pattern = Pattern.compile("([a-z]){7}");
+      Pattern pattern = Pattern.compile("([a-z]){4}");
 
       for(Matcher matcher = pattern.matcher(yuMing); matcher.find(); webKey = webKey + matcher.group()) {
       }
