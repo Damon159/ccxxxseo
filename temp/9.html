@@ -1,455 +1,1004 @@
-﻿<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE composition>
-<html xmlns="http://www.w3.org/1999/xhtml"><head id="j_idt2">
-            
-            <meta name="keywords" content="{#meta_keywords}" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/theme.css.html?ln=primefaces-aristo" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/font-awesome.min.css.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=css" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/grid.css.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=css" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/animation.css.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=css" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/default.css.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=css" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/layout.css.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=css" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/style.css.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=css" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/topbar.css.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=css" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/flexslider.css.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=css" /><link type="text/css" rel="stylesheet" href="/javax.faces.resource/lightbox.css.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=css" /><link type="text/css" rel="stylesheet" href="RES_NOT_FOUND" />
-     
+﻿<!DOCTYPE html>
+<html
+  lang="ja"
+data-admin-domain="//blog.hatena.ne.jp"
+data-admin-origin="https://blog.hatena.ne.jp"
+data-author="sushi_0su4"
+data-avail-langs="ja en"
+data-blog="0su4.hateblo.jp"
+data-blog-host="0su4.hateblo.jp"
+data-blog-is-public="1"
+data-blog-name="すしのひとつで"
+data-blog-owner="sushi_0su4"
+data-blog-uri="https://0su4.hateblo.jp/"
+data-blog-uuid="26006613468323596"
+data-blogs-uri-base="https://0su4.hateblo.jp"
+data-brand="hatenablog"
+data-data-layer="{&quot;hatenablog&quot;:{&quot;admin&quot;:{},&quot;analytics&quot;:{&quot;brand_property_id&quot;:&quot;&quot;,&quot;measurement_id&quot;:&quot;&quot;,&quot;non_sampling_property_id&quot;:&quot;&quot;,&quot;property_id&quot;:&quot;&quot;,&quot;separated_property_id&quot;:&quot;UA-29716941-23&quot;},&quot;blog&quot;:{&quot;blog_id&quot;:&quot;26006613468323596&quot;,&quot;content_seems_japanese&quot;:&quot;true&quot;,&quot;disable_ads&quot;:&quot;&quot;,&quot;enable_ads&quot;:&quot;true&quot;,&quot;enable_keyword_link&quot;:&quot;true&quot;,&quot;entry_show_footer_related_entries&quot;:&quot;true&quot;,&quot;force_pc_view&quot;:&quot;false&quot;,&quot;is_public&quot;:&quot;true&quot;,&quot;is_responsive_view&quot;:&quot;false&quot;,&quot;is_sleeping&quot;:&quot;true&quot;,&quot;lang&quot;:&quot;ja&quot;,&quot;name&quot;:&quot;\u3059\u3057\u306e\u3072\u3068\u3064\u3067&quot;,&quot;owner_name&quot;:&quot;sushi_0su4&quot;,&quot;uri&quot;:&quot;https://0su4.hateblo.jp/&quot;},&quot;brand&quot;:&quot;hatenablog&quot;,&quot;page_id&quot;:&quot;index&quot;,&quot;permalink_entry&quot;:null,&quot;pro&quot;:&quot;free&quot;,&quot;router_type&quot;:&quot;blogs&quot;}}"
+data-device="pc"
+data-dont-recommend-pro="false"
+data-global-domain="https://hatenablog.com"
+data-globalheader-color="b"
+data-globalheader-type="pc"
+data-has-touch-view="1"
+data-help-url="https://help.hatenablog.com"
+data-page="index"
+data-parts-domain="https://hatenablog-parts.com"
+data-plus-available=""
+data-pro="false"
+data-router-type="blogs"
+data-sentry-dsn="https://03a33e4781a24cf2885099fed222b56d@sentry.io/1195218"
+data-sentry-environment="production"
+data-sentry-sample-rate="0.1"
+data-static-domain="https://cdn.blog.st-hatena.com"
+data-version="5c0f0b330e3bed4637c53e551525f9"
+  itemscope
+  itemtype="http://schema.org/Blog"
+  data-initial-state="{}"
+  >
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  
+  <meta name="robots" content="max-image-preview:large" />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=9; IE=10; IE=11" />
+  <title>{#title}</title>
+<meta name="keywords" content="{#meta_keywords}" />
+  
+  
+  
+  
+<meta itemprop="name" content="すしのひとつで"/>
+  <meta itemprop="image" content="https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png"/>
+  <meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="{#meta_title}"/>
+<meta property="og:type" content="blog"/>
+  <meta property="og:url" content="{#current_url}"/>
+  
+  
+  
+  <meta property="og:image" content="{#products_image_url}"/>
+<meta property="og:image:alt" content="すしのひとつで"/>
+  <meta property="og:description" content="{#meta_description}" />
+<meta property="og:site_name" content="{#meta_title}"/>
+      <meta name="twitter:card"  content="summary_large_image" />
+    <meta name="twitter:image" content="{#products_image_url}" />  <meta name="twitter:title" content="{#meta_title}" />  <meta name="twitter:description" content="{#meta_description}" />  <meta name="twitter:app:name:iphone" content="はてなブログアプリ" />
+  <meta name="twitter:app:id:iphone" content="583299321" />
+  <meta name="twitter:app:url:iphone" content="hatenablog:///open?uri=https%3A%2F%2F0su4.hateblo.jp%2F" />  <meta name="twitter:site" content="@tensei_0su4" />
+  
+  
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
     
-     
-     
     
-     
-         
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-        <title>{#title}</title>
-<meta name="description" content="{#meta_description}" />
-<script type="application/ld+json">{#breadcrumbsLdJson} </script>
- <script type="application/ld+json">{#productLdJson}
-</script> 
-        
-        
-        
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  
 <link rel="canonical" href="{#current_url}" />
-<body>
-<div class="{#class_name}">
-<h1>{#h1title1}</h1>
-{#breadcrumbs}
+  <body class="page-index">
+<div class="{#class_name}">{#breadcrumbs}
 {#products_image}
 {#products_description}
 </div>
-     
     
-     
-      
     
-         
     
-       
-     
-     
-     
-     
-     
-     
-     
-        <div id="top-section" class="">
-    <header id="" class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding">
-        <div class="topbar-top ui-g-12 ui-lg-12 ui-md-9 ui-sm-12">
-            <div class="header-wrapper">
-                <div id="header-logo" class="ui-g-3 ui-lg-3 ui-md-6 ui-sm-12 button-top" style="display:inline">
-                    <a><img id="j_idt22" src="https://school.nihonvogue.co.jp/javax.faces.resource/logo_tsushin.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" title="{#img_title}" alt="{#img_title}"> 
-                    </a>
-                </div>
- 
- 
-            </div>
-        </div>
+    
+    
+      <nav class="
+        blog-controlls
         
-<div class="backgroundBottom ui-g-12 ui-lg12"></div>
-        <div class="topbar-bottom ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-            
-            <div class="layout-wrapper ">
-                <div id="header-button" class="header-button" style="display:inline-flex">
-                    <div class="menu-link">
-                         {#products_url}    
-                    </div>
-                    <div class="menu-link">
-                        {#products_url}  
-                    </div>
-                    <div class="menu-link">
-                       {#products_url} 
-                    </div>
-                    <div class="menu-link">
-                        {#products_url} 
-                    </div>
-                
+      ">
+        <div class="blog-controlls-subscribe" data-test-blog-controlls-subscribe>
+          {#products_url}
+        </div>
+      </nav>
+    
+    <div id="globalheader-container"
+  data-brand="hatenablog"
+  
+  
+  
+  >
+  
 {#rand_title}<br>
 </div>
-            </div>
-        </div>
+    <div id="container">
+      <div id="container-inner">
+        <header id="blog-title" data-brand="hatenablog">
+  <div id="blog-title-inner" >
+    <div id="blog-title-content">
+      <h1 id="title">{#h1title1}</h1>
+      
+        <h2 id="blog-description">{#h2title1}</h2>
+{#googleDes}
+      
+    </div>
+  </div>
+</header>
+        
+        
+        
+<div id="content" class="hfeed"
   
-        <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 topbar-mobile">
-            <div class="header-wrapper">
-                <div id="header-logo" class="button-top" style="display:inline">
-                    <a><img id="j_idt24" src="https://school.nihonvogue.co.jp/javax.faces.resource/logo_tsushin.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" title="{#img_title}" alt="{#img_title}">
-                    </a>
-                </div>
- 
-               
-                    {#products_url}
-                
-                <div id="mobile-menu" class="mobile-menu-list" style="">
-                    <ul class="">
-                        <li>
-                            {#products_url}         
-                        </li>
-                        <li>
-                            {#products_url}    
-                        </li>
-                        <li>
-                            {#products_url}      
-                        </li>
-                        <li>
-                            {#products_url} 
-                        </li>
-                    </ul>
- 
-                </div>
-                 
-            </div>
+  >
+  <div id="content-inner">
+    <div id="wrapper">
+      <div id="main">
+        <div id="main-inner">
+          
+  <article class="entry no-entry sleeping-ads" style="display: block !important;">
+    <div class="entry-inner">
+      <div class="entry-content">
+        
+        
+        <div class="variable-mobileWeb-ad">
+          <div id="google_afc_user_container_0" class="sleeping-ad" style="display: block !important;"></div>
         </div>
-    </header>
-        </div>
-        <div class="layout-wrapper">
-            <div id="container">
-                <div id="content" class="center_content">
-        <div class="ui-g-12 ui-lg-9 ui-md-9 ui-sm-12 brown-text"><img id="j_idt28" src="https://school.nihonvogue.co.jp/javax.faces.resource/articleTitleBg_1.jpg.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="img-sp" alt="" style="width: 100%" /><img id="j_idt29" src="https://school.nihonvogue.co.jp/javax.faces.resource/articleTitleBg_pc.png.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="img1" alt="" style="width: 100%" />
-            <div class="button-list ui-g-12 ui-lg-12 ui-md-12 ui-sm-12" style="text-align: center;margin-top: .75em">
-                {#products_url}
-                 
-            </div>
-             
-            <div class="first">
-                <div class="news-container ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                     
-                    <div id="ARTICLETOP" class="brown-headB ui-g-12 ui-lg-12 no-padding" style="">
-                        <div class="ui-g-6 ui-lg-6 ui-md-6 ui-sm-12 no-padding"><img id="j_idt34" src="https://school.nihonvogue.co.jp/javax.faces.resource/article01Title.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="img-1" alt="ピックアップ" />
-                        </div>
-                        <div class="ui-g-6 ui-lg-6 ui-md-6 ui-sm-12 ">
-                            <p class="brown-headP">日本ヴォーグ社の新講座</p>
-                        </div>
-                    </div>
-                     
-                    <div class="content-container ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding">
-                        <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                            <div class="article-content ui-g-8 ui-lg-8 ui-md-8 ui-sm-12"><img id="j_idt36" src="https://school.nihonvogue.co.jp/javax.faces.resource/pickupTitle_baby.png.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="content-image" alt="やさしい赤ちゃん服 0～1歳 まいにち服とアニバーサリーウエア" />
-                                
-                            </div>
-                            <div class="ui-g-4 ui-lg-4 ui-md-4 ui-sm-12 no-padding"><img id="j_idt38" src="https://school.nihonvogue.co.jp/javax.faces.resource/img_baby.png.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="content-image" alt="やさしい赤ちゃん服 0～1歳　まいにち服とアニバーサリーウエア" />
-                            </div>
-                        </div>
-                        <div class="button-list ui-g-12 ui-lg-12 ui-md-12 ui-sm-12" style="text-align: center;margin-bottom: 1em">
-                            {#products_url}
-                        </div>
-                    </div>
-                     
-                     
- 
-                     
-                     
-                    <div class="content-container ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding">
-                        <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                            <div class="article-content ui-g-8 ui-lg-8 ui-md-8 ui-sm-12"><img id="j_idt43" src="https://school.nihonvogue.co.jp/javax.faces.resource/pickupTitle_locksewing.png.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="content-image" alt="山田ルリ子のロックミシンソーイング" />
-                                
-                            </div>
-                            <div class="ui-g-4 ui-lg-4 ui-md-4 ui-sm-12 no-padding"><img id="j_idt45" src="https://school.nihonvogue.co.jp/javax.faces.resource/img_locksewingTop.png.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-right centerImg" alt="山田ルリ子のロックミシンソーイング" />
-                            </div>
-                        </div>
-                        <div class="button-list ui-g-12 ui-lg-12 ui-md-12 ui-sm-12" style="text-align: center;margin-bottom: 1em">
-                            {#products_url}
-                        
-<h2>{#h2title1}</h2>
+        
+        
+        
+      </div>
+    </div>
+  </article>
+          
+  
+   
+   
+  
+  
+  
+  
+  
+    
+      
+        <article class="entry hentry test-hentry js-entry-article date-first autopagerize_page_element chars-800 words-100 mode-markdown entry-odd" id="entry-13574176438058177574" data-keyword-campaign="" data-uuid="13574176438058177574" data-publication-type="entry">
+  <div class="entry-inner">
+    <header class="entry-header">
+  
+    <div class="date entry-date first">
+    {#products_url}
+  </div>
+  <h1 class="entry-title">{#h1title2}</h1>
+  
+  
+  
+  
+</header>
+    
+    <div class="entry-content">
+  
+    <p>早速先週書けなかったので2週間分の日記です。</p>
+<p>1/29
+横須賀に行ってきました。
+前日放映のスローループでカレーが美味しそうだったので。</p>
+<p>虚無の日曜日なのでこの後は特にお出かけもせずアニメを見たいと思います。
+それでは。</p>
+    
+  
+</div>
+    
+  <footer class="entry-footer">
+    
+    <div class="entry-tags-wrapper">
+  <div class="entry-tags">  </div>
+</div>
+    
+    
+  <div
+    class="hatena-star-container"
+    data-hatena-star-container
+    data-hatena-star-url="https://0su4.hateblo.jp/entry/2022/01/30/143034"
+    data-hatena-star-title="今週の日記 2022/1/30"
+    data-hatena-star-variant="profile-icon"
+    data-hatena-star-profile-url-template="https://blog.hatena.ne.jp/{username}/"
+  ></div>
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="https://0su4.hateblo.jp/entry/2022/01/30/143034"></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+  
+  
+</div>
+    
+  
+  
+    
+    <div class="google-afc-image test-google-rectangle-ads">      
+      
+      <div id="google_afc_user_container_1" class="google-afc-user-container google_afc_blocklink2_5 google_afc_boder" data-test-unit="/4374287/blog_user"></div>
+      
+        {#products_url}
+      
+    </div>
+  
+  
+    <div class="customized-footer">
+      
+    </div>
+    
+  <div class="comment-box js-comment-box">
+    
+    <ul class="comment js-comment">
+      <li class="read-more-comments" style="display: block;"><a>もっと読む</a></li>
+    </ul>
+    
+      {#products_url}
+  </div>
+  <h1 class="entry-title">{#h1title3}</h1>
+  
+  
+  
+  
+</header>
+    
+    <div class="entry-content">
+  
+    <p>2日遅れ。
+書いてたら3日遅れになったけど。</p>
+<p>1泊2日で静岡に行ってきました。</p>
+<p>初日は沼津でご飯食べてから東静岡の天然温泉｢柚木の郷｣へ。</p>
+<p>屈んだりせず立ったまま温泉に入れるので不思議な感覚。</p>
+<p>日本酒風呂にも浸かったのですが、香りが熱燗のそれで温泉と酒のダブルパンチの気持ち良さで最高。</p>
+<p>休憩スペースも綺麗で、色んなジャンルの本がありました。</p>
+<p>行った後何人か静岡のフォロワーが反応していたので多分有名なところです。</p>
+<p>バスで行くよりも時間に融通が効くし周辺の観光もしやすいのでおすすめ。</p>
+<p>HELLO CYCLINGプラットフォームのパルクルは全部電動自転車で、駅前に大きなレンタルステーションがありました。</p>
+<p>しきじ、ありがとう。</p>
+<p>薬草サウナからの水風呂が気持ちよすぎて1回転目で昇天。</p>
+<p>なんでサウナの中で見る地方番組ってあんなに面白いんだろう。</p>
+<p>｢サウナは体に危険だ｣なんて言説もありますがサウナに入らずに死ぬよりサウナに入って死んだ方がいいと思う。
+気持ちいいから。</p>
+    
+  
+</div>
+    
+  <footer class="entry-footer">
+    
+    <div class="entry-tags-wrapper">
+  <div class="entry-tags">  </div>
+</div>
+    
+    
+  <div
+    class="hatena-star-container"
+    data-hatena-star-container
+    data-hatena-star-url="https://0su4.hateblo.jp/entry/2022/01/19/000108"
+    data-hatena-star-title="今週の日記 2022/1/16"
+    data-hatena-star-variant="profile-icon"
+    data-hatena-star-profile-url-template="https://blog.hatena.ne.jp/{username}/"
+  ></div>
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="https://0su4.hateblo.jp/entry/2022/01/19/000108"></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+  
+  
+</div>
+    
+  
+  
+    
+    <div class="google-afc-image test-google-rectangle-ads">      
+      
+      <div id="google_afc_user_container_2" class="google-afc-user-container google_afc_blocklink2_5 google_afc_boder" data-test-unit="/4374287/blog_user_2nd"></div>
+      
+        {#products_url}
+      
+    </div>
+  
+  
+    <div class="customized-footer">
+      
+    </div>
+    
+  <div class="comment-box js-comment-box">
+    
+    <ul class="comment js-comment">
+      <li class="read-more-comments" style="display: block;"><a>もっと読む</a></li>
+    </ul>
+    
+      {#products_url}
+  </div>
+  <h1 class="entry-title">{#h1title4}</h1>
+  
+  
+  
+  
+</header>
+    
+    <div class="entry-content">
+  
+    <p>あけましておめでとうございます。
+今年からはちゃんと毎週書きます。</p>
+<p>2作品ともえちえちでうれしいんだ…w</p>
+<p>高木さんは3期からdアニメでも配信してくれて助かる。
+結局2期最終話まだ見れてないのでなるべく早く向き合います。</p>
+<p>来期は楽しみな作品が沢山あるので、今期アニメは溜めずに今期のうちにしっかり見ていきたいですね。</p>
+    
+  
+<h4>{#h4title1}</h4>
 {#googleDes}
 </div>
-                    
+    
+  <footer class="entry-footer">
+    
+    <div class="entry-tags-wrapper">
+  <div class="entry-tags">  </div>
+</div>
+    
+    
+  <div
+    class="hatena-star-container"
+    data-hatena-star-container
+    data-hatena-star-url="https://0su4.hateblo.jp/entry/2022/01/09/221924"
+    data-hatena-star-title="今週の日記 2022/1/9"
+    data-hatena-star-variant="profile-icon"
+    data-hatena-star-profile-url-template="https://blog.hatena.ne.jp/{username}/"
+  ></div>
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="https://0su4.hateblo.jp/entry/2022/01/09/221924"></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+  
+  
+</div>
+    
+  
+  
+    
+    <div class="google-afc-image test-google-rectangle-ads">      
+      
+      <div id="google_afc_user_container_3" class="google-afc-user-container google_afc_blocklink2_5 google_afc_boder" data-test-unit="/4374287/blog_user_2nd"></div>
+      
+        {#products_url}
+      
+    </div>
+  
+  
+    <div class="customized-footer">
+      
+    </div>
+    
+  <div class="comment-box js-comment-box">
+    
+    <ul class="comment js-comment">
+      <li class="read-more-comments" style="display: block;"><a>もっと読む</a></li>
+    </ul>
+    
+      {#products_url}
+  </div>
+  <h1 class="entry-title">{#h1title5}</h1>
+  
+  
+  <div class="entry-categories categories">
+    
+    {#products_url}
+    
+  </div>
+  
+  
+</header>
+    
+    <div class="entry-content">
+  
+    
+<h3>{#h3title1}</h3>
+{#googleDes}
+<blockquote class="twitter-tweet">
+— すし (@tensei_0su4) {#products_url}</blockquote>
+<h3>{#h3title2}</h3>
+{#googleDes}
+<h3>{#h3title3}</h3>
+{#googleDes}
+<h3>{#h3title4}</h3>
+{#googleDes}
+<h3>
+<h3>
+    
+  
+</div>
+    
+  <footer class="entry-footer">
+    
+    <div class="entry-tags-wrapper">
+  <div class="entry-tags">  </div>
+</div>
+    
+    
+  <div
+    class="hatena-star-container"
+    data-hatena-star-container
+    data-hatena-star-url="https://0su4.hateblo.jp/entry/2021/12/21/224838"
+    data-hatena-star-title="今週の日記 2021/12/19"
+    data-hatena-star-variant="profile-icon"
+    data-hatena-star-profile-url-template="https://blog.hatena.ne.jp/{username}/"
+  ></div>
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="https://0su4.hateblo.jp/entry/2021/12/21/224838"></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+  
+  
+</div>
+    
+  
+  
+    
+    <div class="google-afc-image test-google-rectangle-ads">      
+      
+        
+      
+      <div id="google_afc_user_container_4" class="google-afc-user-container google_afc_blocklink2_5 google_afc_boder" data-test-unit="/4374287/blog_user_2nd"></div>
+      
+        {#products_url}
+      
+    </div>
+  
+  
+    <div class="customized-footer">
+      
+    
 <h5>{#h5title1}</h5>
 {#googleDes}
 </div>
-                     
-                     
-                    <div class="content-container ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding">
-                        <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                            <div class="article-content ui-g-8 ui-lg-8 ui-md-8 ui-sm-12"><img id="j_idt50" src="https://school.nihonvogue.co.jp/javax.faces.resource/pickupTitle_fmd.png.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="content-image" alt="フランス伝統の手工芸であるカルトナージュやタッセルを学びながら、素敵なインテリアが作れる講座です。フレンチメゾンデコール通信講座" />
-                                
-                            </div>
-                            <div class="ui-g-4 ui-lg-4 ui-md-4 ui-sm-12 no-padding"><img id="j_idt52" src="https://school.nihonvogue.co.jp/javax.faces.resource/img_fmd.png.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-right centerImg" alt="フランス伝統の手工芸であるカルトナージュやタッセルを学びながら、素敵なインテリアが作れる講座です。フレンチメゾンデコール通信講座" />
-                            </div>
-                        </div>
-                        <div class="button-list ui-g-12 ui-lg-12 ui-md-12 ui-sm-12" style="text-align: center;margin-bottom: 1em">
-                            {#products_url}
-                        </div>
-                    </div>
-                    <div class="content-container ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding">
-                        <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                            <div class="article-content ui-g-8 ui-lg-8 ui-md-8 ui-sm-12"><img id="j_idt57" src="https://school.nihonvogue.co.jp/javax.faces.resource/pickupTitle_filmstained.png.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="content-image" alt="カラーフィルムと鉛の線で彩るインテリア雑貨「日本グラスアート協会のフィルム・ステンドグラス」" />
-                                
-                            
-<h2>{#h2title2}</h2>
-{#googleDes}
-</div>
-                            <div class="ui-g-4 ui-lg-4 ui-md-4 ui-sm-12 no-padding"><img id="j_idt59" src="https://school.nihonvogue.co.jp/javax.faces.resource/img_filmstained.png.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-right centerImg" alt="カラーフィルムと鉛の線で彩るインテリア雑貨「日本グラスアート協会のフィルム・ステンドグラス」" />
-                            </div>
-                        </div>
-                        <div class="button-list ui-g-12 ui-lg-12 ui-md-12 ui-sm-12" style="text-align: center;margin-bottom: 1em">
-                            {#products_url}
-                        </div>
-                    </div>
-                     
-                     
-                     
-                </div>
-            </div>
-             
- 
-             
-            <div class="third">
-                <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                    <div class="brown-head">
-                        <h2>{#h2title3}</h2>
-{#googleDes}
-                    </div>
-                    <div class="right-content ui-g-6 ui-lg-6 ui-md-6 ui-sm-12">
-                        <ul class="course knit">
-                            <h3 class="heading">{#h3title1}</h3>
-{#googleDes}
-                             
- 
-                            <li>{#products_url}</li>
-                            <li>{#products_url}</li>
-                            <li class="last">{#products_url}</li>
-                        </ul>
-                        <ul class="course embroidery">
-                            <h3 class="heading">{#h3title2}</h3>
-{#googleDes}
-                            <li class="last">{#products_url}</li>
-                        </ul>
-                        <ul class="course sewing">
-                            <h3 class="heading">{#h3title3}</h3>
-{#googleDes}
-                            <li>{#products_url}</li>
-                            <li>{#products_url}</li>
-                            <li>{#products_url}</li>
-                             
-                        </ul>
-                    </div>
-                    <div class="left-content ui-g-6 ui-lg-6 ui-md-6 ui-sm-12">
-                         
-                        <ul class="course craft">
-                            <h3 class="heading">{#h3title4}</h3>
-{#googleDes}
-                            <li>{#products_url}</li>
-                            <li>{#products_url}</li>
-                            <li>{#products_url}</li>
-                            <li><a href="{#href#}">タイルクラフトディプロマ認定講座</a></li>
-                             
-                            <li class="last"><a href="{#href#}">つゆつきのつまみ細工</a></li>
-                        </ul>
-                        <ul class="course color">
-                            <h3 class="heading">
-                            <li><a href="{#href#}">末永蒼生の色彩学校【カラーコーディネイト＆色彩セラピー入門】</a></li>
-                            <li class="last">{#products_url}</li>
-                        </ul>
-                    
+    
+  <div class="comment-box js-comment-box">
+    
+    <ul class="comment js-comment">
+      <li class="read-more-comments" style="display: block;"><a>もっと読む</a></li>
+    </ul>
+    
+      {#products_url}
+  
 {#back_tag_1}
 {#youtube}
 {#view}
 </div>
-                </div>
-            
+  <h1 class="entry-title">{#h1title6}</h1>
+  
+  
+  
+  
+</header>
+    
+    <div class="entry-content">
+  
+    
+    
+  
+</div>
+    
+  <footer class="entry-footer">
+    
+    <div class="entry-tags-wrapper">
+  <div class="entry-tags">  </div>
+<h2>{#h2title2}</h2>
+{#googleDes}
+</div>
+    
+    
+  <div
+    class="hatena-star-container"
+    data-hatena-star-container
+    data-hatena-star-url="https://0su4.hateblo.jp/entry/2021/12/12/193155"
+    data-hatena-star-title="今週の日記 2021/12/12"
+    data-hatena-star-variant="profile-icon"
+    data-hatena-star-profile-url-template="https://blog.hatena.ne.jp/{username}/"
+  ></div>
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="https://0su4.hateblo.jp/entry/2021/12/12/193155"></div>
+    
 {#google_images}
 </div>
-             
-            <div class="fourth">
-                <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 brownTxt">
-                    <div class="brown-head">
-                        <h2>{#h2title4}</h2>
-{#googleDes}
-                    </div>
-                    
-                    <div class="toppage-article ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-sm-12"><img id="j_idt78" src="https://school.nihonvogue.co.jp/javax.faces.resource/article01point01.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-left" alt="わかりやすいテキスト" />  
-                            
-                        </div>
-                        <div class="ui-g-4 ui-lg-4 ui-md-4 ui-sm-12"><img id="j_idt80" src="https://school.nihonvogue.co.jp/javax.faces.resource/article01img01.jpg.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-right centerImg" alt="課題制作イメージ" />  
-                        
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+  
+  
+</div>
+    
+  
+  
+    
+    <div class="google-afc-image test-google-rectangle-ads">      
+      
+        
+      
+      <div id="google_afc_user_container_5" class="google-afc-user-container google_afc_blocklink2_5 google_afc_boder" data-test-unit="/4374287/blog_user_2nd">
 <h5>{#h5title2}</h5>
 {#googleDes}
 </div>
-                    </div>
-                    <div class="toppage-article ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-sm-12"><img id="j_idt82" src="https://school.nihonvogue.co.jp/javax.faces.resource/article01point02.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-left" alt="充実したバックアップ体制" />  
-                            
-                        </div>
-                        <div class="ui-g-4 ui-lg-4 ui-md-4 ui-sm-12"><img id="j_idt84" src="https://school.nihonvogue.co.jp/javax.faces.resource/article01img02.jpg.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-right centerImg" alt="オリジナル教材イメージ" />  
-                        
-<h4>{#h4title1}</h4>
-{#googleDes}
+      
+        {#products_url}
+      
+    </div>
+  
+  
+    <div class="customized-footer">
+      
+    </div>
+    
+  <div class="comment-box js-comment-box">
+    
+    <ul class="comment js-comment">
+      <li class="read-more-comments" style="display: block;"><a>もっと読む</a></li>
+    </ul>
+    
+      {#products_url}
+  </div>
+  <h1 class="entry-title">{#h1title7}</h1>
+  
+  
+  
+  
+</header>
+    
+    <div class="entry-content">
+  
+    
+    
+  
 </div>
-                    </div>
-                    <div class="toppage-article ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-sm-12"><img id="j_idt86" src="https://school.nihonvogue.co.jp/javax.faces.resource/article01point03.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-left" alt="豊富なラインナップとお手頃価格" />  
-                            
-                        </div>
-                        <div class="ui-g-4 ui-lg-4 ui-md-4 ui-sm-12"><img id="j_idt88" src="https://school.nihonvogue.co.jp/javax.faces.resource/article01img03.jpg.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-right centerImg" alt="テキストイメージ" />  
-                        </div>
-                    </div>
-                    <div class="toppage-article ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                        <div class="ui-g-8 ui-lg-8 ui-md-8 ui-sm-12"><img id="j_idt90" src="https://school.nihonvogue.co.jp/javax.faces.resource/article01point04.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-left" alt="お支払い方法には、商品お届け後、コンビニ払い・郵便振替・代金引換〉のほか、クレジットカード払い（一括・分割）が選べます" /> 
-                            
-                        
-{#reviews}<br>
-<h4>{#h4title2}</h4>
-{#googleDes}
+    
+  <footer class="entry-footer">
+    
+    <div class="entry-tags-wrapper">
+  <div class="entry-tags">  </div>
 </div>
-                        <div class="ui-g-4 ui-lg-4 ui-md-4 ui-sm-12"><img id="j_idt92" src="https://school.nihonvogue.co.jp/javax.faces.resource/article01img04.jpg.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="image-right centerImg" alt="添削イメージ" />  
-                        </div>
-                    </div>
-                    <div class="ui-g-9 ui-lg-9 ui-md-12 ui-sm-12">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-             
-    <div class="ui-g-12 ui-lg-3 ui-md-3 ui-sm-12 brownTxt">
-        <div class="button-list ui-g-12 ui-lg-12 ui-sm-6">
-            <a href="{#href#}"><img id="j_idt96" src="https://school.nihonvogue.co.jp/javax.faces.resource/btnReqS_on.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="img-top" alt="資料請求（無料）" style="width: 100%" /><img id="j_idt97" src="https://school.nihonvogue.co.jp/javax.faces.resource/btnReqS.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="img-top2" alt="資料請求（無料）" style="width: 100%" />
-            </a>
-        </div>
-        <div class="button-list ui-g-12 ui-lg-12 ui-sm-6">
-            <a href="{#href#}" target="_blank"><img id="j_idt99" src="https://school.nihonvogue.co.jp/javax.faces.resource/btnAppS_on.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="img-top" alt="受講お申し込み" style="width: 102%" /><img id="j_idt100" src="https://school.nihonvogue.co.jp/javax.faces.resource/btnAppS.gif.html;jsessionid=5453c16cdc16b9ee352c3ffd1d43?ln=images" class="img-top2" alt="受講お申し込み" style="width: 102%" />
-            </a>
-        </div>
-        <div id="contact" class=" ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 grid-container">
-            <div class="grid-item-contact grid-item-contact1">お問い合わせ</div>
-            <div class="grid-item-contact" style="margin-top: 5px">(株)日本ヴォーグ社</div>
-            <div class="grid-item-contact" style="margin-bottom: 5px">カスタマー本部通信教育係 
+    
+    
+  <div
+    class="hatena-star-container"
+    data-hatena-star-container
+    data-hatena-star-url="https://0su4.hateblo.jp/entry/2021/11/28/233333"
+    data-hatena-star-title="今週の日記 2021/11/28"
+    data-hatena-star-variant="profile-icon"
+    data-hatena-star-profile-url-template="https://blog.hatena.ne.jp/{username}/"
+  ></div>
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      {#products_url}
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="https://0su4.hateblo.jp/entry/2021/11/28/233333"></div>
+    
 <div class="related {#class_name_1}">
 </div></div>
-            <div class="grid-item-contact grid-item-white">
-                <div class="text-contact">
-                    お電話から
-                </div>
-                <hr />
-                <div class="" style="color:palevioletred">
-                    0120-923-258
-                
-<h4>{#h4title3}</h4>
-{#googleDes}
-</div>
-            </div>
-            <div class="grid-item-contact grid-item-white">
-                <div class="text-contact">
-                    メールから
-                </div>
-                <hr />
-                <div class="">
-                    {#products_url} 
-                </div>
-            </div>       
-        </div>
-        <div id="ranking-course" class=" ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding grid-container" style="background-color:#D4528C">
-            <div class="grid-item-rankingcourse">
-                <p class="course-title">日本ヴォーグ社 </p>
-                <p class="course-title">月間人気講座ランキング</p>
-                <hr style="color:palevioletred" />
-                <ul>
-                    <li class="ranking-course-text1">
-                        {#products_url}
-                    </li>
-                    <hr style="color:palevioletred" />
-                    <li class="ranking-course-text2">
-                        {#products_url}
-                    </li>
-                    <hr style="color:palevioletred" />
-                    <li class="ranking-course-text3">
-                        {#products_url}
-                    </li>
-                    <hr style="color:palevioletred" />
-                    <li class="ranking-course-text4">
-                        <a href="{#href#}" class="link-text1">つゆつきのつまみ細工</a>
-                    </li>
-                    <hr style="color:palevioletred" />
-                    <li class="ranking-course-text5">
-                        <a href="{#href#}" class="link-text1">青木和子の刺しゅうレッスン</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div id="ranking-course" class=" ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding">
-            <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12">
-                 
-            </div>
-            <div id="ranking-course" class=" ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding grid-container" style="background-color:#6B5D5D">
-                <div class="grid-item-rankingcourse">
-                    <p class="recomended-course-title">日本ヴォーグ社 </p>
-                    <p class="recomended-course-title">おすすめ通信講座</p>
-                    <hr style="color:#6B5D5D" />
-                    <div class="recomended-course-text">
-                        <ul class="recomended-course-text">
-                             
-                             
-                            <hr id="recommended-item-course" style="color:#AFA9A9" />
-                            <li>{#products_url}</li>
-                            <hr id="recommended-item-course" style="color:#AFA9A9" />
-                            <li>{#products_url}</li>
-                            <hr id="recommended-item-course" style="color:#AFA9A9" />
-                             
-                            <li><a href="{#href#}" class="link-text">フェアアイルニット</a></li>
-                            <hr id="recommended-item-course" style="color:#AFA9A9" />
-                            <li>{#products_url}</li>
-                            <hr id="recommended-item-course" style="color:#AFA9A9" />
-                            <li>{#products_url}</li>                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div id="ranking-course" class=" ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding">
-                <div class=" ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding">
-                    <div class="grid-item-picture">
-                        {#products_url}
-                    </div>
-                    <div class="grid-item-picture">
-                        {#products_url}
-                    </div>
-                </div>
-                <div class=" ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 no-padding">
-                    <div class="grid-item-picture">
-                        {#products_url}
-                    </div>
-                    <div class="grid-item-picture">
-                        {#products_url}
-                    </div>
-                
-<h1>{#h1title2}</h1>
-</div>
-            </div>
-        </div>
+  
+  
+    <div class="social-button-item">
+      {#products_url}
     </div>
-                </div>
-            
-<h1>{#h1title3}</h1>
+  
+  
+  
+  
 </div>
-        </div>
-        <div id="bottom">
-    <footer class="footer">
-        <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 footer-top">
-            <a href="{#href#}" class="hreffooter">会社案内 </a> |
-            {#products_url} |
-            <a href="{#href#}" class="hreffooter">手づくりタウン</a>
-        </div>
-        <div class="ui-g-12 ui-lg-12 ui-md-12 ui-sm-12 footer-bottom">
-            <p style="text-align: center">©NIHONVOGUE-SHA</p>
+    
+  
+  
+    
+    <div class="google-afc-image test-google-rectangle-ads">      
+      
         
-<h5>{#h5title3}</h5>
+      
+      <div id="google_afc_user_container_6" class="google-afc-user-container google_afc_blocklink2_5 google_afc_boder" data-test-unit="/4374287/blog_user_2nd">
+{#reviews}<br>
+</div>
+      
+        <a href="{#href#}" class="open-pro-modal" data-guide-pro-modal-ad-url="https://hatenablog.com/guide/pro/modal/ad">広告を非表示にする</a>
+      
+    </div>
+  
+  
+    <div class="customized-footer">
+      
+    </div>
+    
+  <div class="comment-box js-comment-box">
+    
+    <ul class="comment js-comment">
+      <li class="read-more-comments" style="display: block;"><a>もっと読む</a></li>
+    </ul>
+    
+      {#products_url}
+  </div>
+  <h1 class="entry-title">{#h1title8}</h1>
+  
+  
+  
+  
+</header>
+    
+    <div class="entry-content">
+  
+    
+    
+  
+</div>
+    
+  <footer class="entry-footer">
+    
+    <div class="entry-tags-wrapper">
+  <div class="entry-tags">  </div>
+</div>
+    
+    
+  <div
+    class="hatena-star-container"
+    data-hatena-star-container
+    data-hatena-star-url="https://0su4.hateblo.jp/entry/2021/11/14/202439"
+    data-hatena-star-title="今週の日記 2021/11/14"
+    data-hatena-star-variant="profile-icon"
+    data-hatena-star-profile-url-template="https://blog.hatena.ne.jp/{username}/"
+  ></div>
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      <a href="{#href#}" class="hatena-bookmark-button" data-hatena-bookmark-url="https://0su4.hateblo.jp/entry/2021/11/14/202439" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="ja" title="この記事をはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="この記事をはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="https://0su4.hateblo.jp/entry/2021/11/14/202439"></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <a href="{#href#}" class="twitter-share-button" data-url="https://0su4.hateblo.jp/entry/2021/11/14/202439" data-count="vertical" data-text="今週の日記 2021/11/14 - すしのひとつで" data-lang="ja">Tweet</a>
+    </div>
+  
+  
+  
+  
+</div>
+    
+  
+  
+    
+    <div class="google-afc-image test-google-rectangle-ads">      
+      
+        
+      
+      <div id="google_afc_user_container_7" class="google-afc-user-container google_afc_blocklink2_5 google_afc_boder" data-test-unit="/4374287/blog_user_2nd"></div>
+      
+        <a href="{#href#}" class="open-pro-modal" data-guide-pro-modal-ad-url="https://hatenablog.com/guide/pro/modal/ad">広告を非表示にする</a>
+      
+    </div>
+  
+  
+    <div class="customized-footer">
+      
+    </div>
+    
+  <div class="comment-box js-comment-box">
+    
+    <ul class="comment js-comment">
+      <li class="read-more-comments" style="display: block;"><a>もっと読む</a></li>
+    </ul>
+    
+      <a class="leave-comment-title js-leave-comment-title">コメントを書く</a>
+    
+  
+<h2>{#h2title3}</h2>
 {#googleDes}
 </div>
-    </footer>
-        </div>
-        <button onclick="topFunction()" id="myButton" title="Go to top"></button>
+  </footer>
+  </div>
+</article>
+      
+      
+    
+  
+  
+   
+   
+  
+  
+  <div class="pager autopagerize_insert_before">
+    <span class="pager-next">
+      {#products_url}
+    
+    
+    <span class="id">
+      <a href="{#href#}" class="hatena-id-link"><span data-load-nickname="1" data-user-name="sushi_0su4">id:sushi_0su4</span></a>
+      
+  
+  
+    </span>
+    
+    
+    
+    
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box"
+  
+  >
+  {#products_url}
+  <div class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">
+    </span>
+  </div>
+</div>
+    
+    
+    <div class="hatena-follow-button-box btn-twitter">
+      <a href="{#href#}" class="twitter-follow-button" data-show-count="false" data-lang="ja">
+        @tensei_0su4をフォロー
+      </a>
+    </div>
+    
+    <div class="profile-about">
+      {#products_url}
+    </div>
+  </div>
+</div>
+    
+      <div class="hatena-module hatena-module-search-box">
+  <div class="hatena-module-title">
+    検索
+  </div>
+  <div class="hatena-module-body">
+    <form class="search-form" role="search" action="https://0su4.hateblo.jp/search" method="get">
+  <input type="text" name="q" class="search-module-input" value="" placeholder="記事を検索" required>
+  <input type="submit" value="検索" class="search-module-button" />
+</form>
+  </div>
+</div>
+    
+      <div class="hatena-module hatena-module-links">
+  <div class="hatena-module-title">
+    リンク
+  </div>
+  <div class="hatena-module-body">
+    <ul class="hatena-urllist">
+      
+        <li>
+          <a href="{#href#}">はてなブログ</a>
+        </li>
+      
+        <li>
+          {#products_url}
+        </li>
+      
+        <li>
+          {#products_url}
+        </li>
+      
+        <li>
+          <a href="{#href#}">はてなブログPro</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+    
+      <div class="hatena-module hatena-module-recent-entries ">
+  <div class="hatena-module-title">
+    <a href="{#href#}">
+      最新記事
+    </a>
+  </div>
+  <div class="hatena-module-body">
+    <ul class="recent-entries hatena-urllist ">
+  
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="{#href#}" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">今週の日記 2022/1/30</a>
+          
+          
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          {#products_url}
+          
+          
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          {#products_url}
+          
+          
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="{#href#}" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">今週の日記 2021/12/19</a>
+          
+          
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          {#products_url}
+          
+          
+                </div>
+    </li>
+  
+</ul>
+      </div>
+</div>
+    
+      
+<div class="hatena-module hatena-module-archive" data-archive-type="default" data-archive-url="https://0su4.hateblo.jp/archive">
+  <div class="hatena-module-title">
+    <a href="{#href#}">月別アーカイブ</a>
+  </div>
+  <div class="hatena-module-body">
+  </div>
+</div>
+    
+    
+  </div>
+</aside>
+  </div>
+</div>
         
         
-         </body>
+      </div>
+    </div>
+    
+<footer id="footer" data-brand="hatenablog">
+  <div id="footer-inner">
+    
+    <address class="footer-address">
+      {#products_url}
+    </address>
+    
+  </div>
+</footer>
+    
+    
+  
+  
+  
+  
+    
+      <div id="fb-root"></div>
+    
+    
+<div class="quote-box">
+  <div class="tooltip-quote tooltip-quote-stock">
+    <i class="blogicon-quote" title="引用をストック"></i>
+  </div>
+  <div class="tooltip-quote tooltip-quote-tweet js-tooltip-quote-tweet">
+    {#products_url}
+  <div class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">
+    </span>
+  </div>
+</div>
+    </div>
+    
+  
+  
+    
+  
+    
+  </body>
 </html>

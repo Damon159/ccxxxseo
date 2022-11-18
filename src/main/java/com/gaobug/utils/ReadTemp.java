@@ -6,14 +6,11 @@ import com.gaobug.seo.GreatSeo;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
 import org.apache.commons.io.FileUtils;
 
 public class ReadTemp {
@@ -87,8 +84,26 @@ public class ReadTemp {
             }
          }
 
-         List google_desH_list = Collections.singletonList(((Map)mapGreatSeo).get("google_desH"));
-         List google_desP_list = Collections.singletonList(((Map)mapGreatSeo).get("google_desP"));
+         String desimage= (String) ((Map<?, ?>) mapGreatSeo).get("desimage")!=null?(String) ((Map<?, ?>) mapGreatSeo).get("desimage"):"";
+         String getYoutube_keywords= (String) ((Map<?, ?>) mapGreatSeo).get("youtube_keywords")!=null?(String) ((Map<?, ?>) mapGreatSeo).get("youtube_keywords"):"";
+         //String product_review= (String) ((Map<?, ?>) mapGreatSeo).get("product_review")!=null?(String) ((Map<?, ?>) mapGreatSeo).get("product_review"):"";
+         String google_image_keyword= (String) ((Map<?, ?>) mapGreatSeo).get("google_image_keyword")!=null?(String) ((Map<?, ?>) mapGreatSeo).get("google_image_keyword"):"";
+         google_image_keyword=google_image_keyword.replace("Φfenge",",");
+         google_image_keyword=google_image_keyword.replace("###","<br>");
+         String [] images=desimage.split("Φfenge");
+         String imms="";
+         for (int i = 0; i < images.length; i++) {
+            imms+="<img src=\""+images[i]+"\">"+"<br>";
+         }
+         getYoutube_keywords=getYoutube_keywords.replace("Φfenge",",");
+         String[] desHs=null;
+         String[] desPs=null;
+         String desH= (String)((Map)mapGreatSeo).get("keytitles");
+         desH=desH.replaceAll("<[\\s\\S]*?>","");
+         desHs=desH.split("Φfenge");
+         String  desP= (String)((Map)mapGreatSeo).get("destitle");
+         desP=desP.replaceAll("<[\\s\\S]*?>","");
+         desPs=desP.split("Φfenge");
          String[] productUlr = tempContext.split("\\{#products_url}");
          List productList = getSomeSiteUlr(yuMing, yuMingCanShu, productUlr.length + 1);
          productList = produceHtmlAUrl1(productList, productUlr.length + 1, yuMing, yuMingCanShu);
@@ -99,27 +114,36 @@ public class ReadTemp {
             tempContext = tempContext.replaceAll("\\{#href}", yuMingCanShu);
             tempContext = tempContext.replaceAll("\\{#href#}", yuMingCanShu);
             tempContext = tempContext.replaceAll("\\{#reviews}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("product_related") == null ? "" : ((Map)mapGreatSeo).get("product_related") + ""));
+            tempContext=tempContext.replaceAll("Ω","");
             tempContext = tempContext.replaceAll("\\{#class_name}", "servlet");
             tempContext = tempContext.replaceAll("\\{#class_name_1}", "servlet");
             tempContext = tempContext.replaceAll("\\{#products_image}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("product_main_img") == null ? "" : replaceImage(((Map)mapGreatSeo).get("product_main_img") + "", ((Map)mapGreatSeo).get("product_name") + "")));
             String tempdes = ((Map)mapGreatSeo).get("product_description") != null && ((Map)mapGreatSeo).get("product_description") != "" ? String.valueOf(((Map)mapGreatSeo).get("product_description")) : "";
             tempdes = tempdes.replaceAll("<h2>", "");
             tempdes = tempdes.replaceAll("</h2>", "");
-            tempContext = tempContext.replaceAll("\\{#products_description}", Matcher.quoteReplacement(tempdes));
-            tempContext = tempContext.replaceAll("\\{#breadcrumbs}", breadCrumbs(yuMingCanShu, (String)((Map)mapGreatSeo).get("product_cate1"), (String)((Map)mapGreatSeo).get("product_cate2"), (String)((Map)mapGreatSeo).get("product_cate3"), (String)((Map)mapGreatSeo).get("product_name"), yuMing));
+            tempContext = tempContext.replaceAll("\\{#products_description}", Matcher.quoteReplacement(tempdes)+imms);
+            tempContext = tempContext.replaceAll("\\{#breadcrumbs}", breadCrumbs(yuMingCanShu, "", (String)((Map)mapGreatSeo).get("product_cate2"), (String)((Map)mapGreatSeo).get("product_cate3"), (String)((Map)mapGreatSeo).get("product_name"), yuMing));
             //tempContext = tempContext.replaceAll("\\{#breadcrumbs}", "");
             ProductLdJson var10002 = productLdJson;
-            //tempContext = tempContext.replaceAll("\\{#breadcrumbsLdJson}", Matcher.quoteReplacement(ProductLdJson.breadCrumbsLdJson(yuMingCanShu, (String)((Map)mapGreatSeo).get("product_cate1"), (String)((Map)mapGreatSeo).get("product_cate2"), (String)((Map)mapGreatSeo).get("product_cate3"), (String)((Map)mapGreatSeo).get("product_name"), yuMing)));
-            tempContext = tempContext.replaceAll("\\{#breadcrumbsLdJson}", "");
+            tempContext = tempContext.replaceAll("\\{#breadcrumbsLdJson}", Matcher.quoteReplacement(ProductLdJson.breadCrumbsLdJson(yuMingCanShu, (String)((Map)mapGreatSeo).get("product_cate1"), (String)((Map)mapGreatSeo).get("product_cate2"), (String)((Map)mapGreatSeo).get("product_cate3"), (String)((Map)mapGreatSeo).get("product_name"), yuMing)));
+            //tempContext = tempContext.replaceAll("\\{#breadcrumbsLdJson}", "");
             var10002 = productLdJson;
-            //tempContext = tempContext.replaceAll("\\{#productLdJson}", Matcher.quoteReplacement(ProductLdJson.productJson(greatSeo, yuMing + "/?" + yuMingCanShu)));
-            tempContext = tempContext.replaceAll("\\{#productLdJson}", "");
+            tempContext = tempContext.replaceAll("\\{#productLdJson}", Matcher.quoteReplacement(ProductLdJson.productJson(greatSeo, yuMing + "/?" + yuMingCanShu)));
+            //tempContext = tempContext.replaceAll("\\{#productLdJson}", "");
             tempContext = tempContext.replaceAll("\\{#img_title}", (String)((Map)mapGreatSeo).get("product_name"));
             tempContext = tempContext.replaceAll("\\{#h1title\\d}", ((Map)mapGreatSeo).get("product_name") == null ? "" : (String)((Map)mapGreatSeo).get("product_name"));
             String[] hArray = tempContext.split("\\{#h\\dtitle\\d}");
-            tempContext = replaceGoogleDes(hArray, (List)(((Map)mapGreatSeo).get("google_desH") != "" && ((Map)mapGreatSeo).get("google_desH") != null ? greatSeo.getGoogle_desH() : new ArrayList()), "0");
+            List<String> i2 = null;
+            List<String> i3=null;
+            if (desHs.length>0&& desHs != null){
+               i2 = Arrays.stream(desHs).collect(Collectors.toList());
+            }
+            if (desPs.length>0&& desPs != null){
+               i3 = Arrays.stream(desPs).collect(Collectors.toList());
+            }
+            tempContext = replaceGoogleDes(hArray, (List)(desHs.length>0&& desHs != null ? i2 : new ArrayList()), "0");
             String[] pArray = tempContext.split("\\{#googleDes}");
-            tempContext = replaceGoogleDes(pArray, (List)(((Map)mapGreatSeo).get("google_desP") != "" && ((Map)mapGreatSeo).get("google_desP") != null ? greatSeo.getGoogle_desP() : new ArrayList()), "1");
+            tempContext = replaceGoogleDes(pArray, (List)(desPs.length>0 && desPs!=null? i3: new ArrayList()), "1");
             tempContext = tempContext.replaceAll("<h\\d>\\{#h\\dtitle\\d}</h\\d>", "");
             tempContext = tempContext.replaceAll("\\{#googleDes}", "");
             tempContext = tempContext.replaceAll("\\{#title}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("product_name") == null ? "" : (String)((Map)mapGreatSeo).get("product_name")));
@@ -129,19 +153,21 @@ public class ReadTemp {
             tempContext = tempContext.replaceAll("\\{#meta_keywords}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_cate2") + ((Map)mapGreatSeo).get("product_name")));
             tempContext = tempContext.replaceAll("\\{#current_url}", yuMingCanShu + yuMing);
             tempContext = tempContext.replaceAll("\\{#products_image_url}", ((Map)mapGreatSeo).get("product_main_img") == null ? ((Map)mapGreatSeo).get("product_main_img") + "" : "");
-            tempContext = tempContext.replaceAll("\\{#google_images}", Matcher.quoteReplacement(String.valueOf(((Map)mapGreatSeo).get("google_img"))));
-            if (((Map)mapGreatSeo).get("google_desH") != "[]") {
-               tempContext = tempContext.replaceAll("\\{#remain_tag_2}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_name") + greatSeo.getGoogle_desH().get(0) + " " + ((Map)mapGreatSeo).get("product_cate2") + ((Map)mapGreatSeo).get("product_main_img") == null ? "" : replaceImage(((Map)mapGreatSeo).get("product_main_img") + "", ((Map)mapGreatSeo).get("product_name") + "")));
-               tempContext = tempContext.replaceAll("\\{#meta_keywords}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_name") + greatSeo.getGoogle_desH().get(0) + ((Map)mapGreatSeo).get("product_cate3")));
-               tempContext = tempContext.replaceAll("\\{#meta_title}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_name") + greatSeo.getGoogle_desH().get(0) + " " + ((Map)mapGreatSeo).get("product_cate2")));
+            tempContext = tempContext.replaceAll("\\{#google_images}", google_image_keyword);
+            if (desHs.length>0) {
+               tempContext = tempContext.replaceAll("\\{#remain_tag_2}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_name") + desHs[0] + " " + ((Map)mapGreatSeo).get("product_cate2") + ((Map)mapGreatSeo).get("product_main_img") == null ? "" : replaceImage(((Map)mapGreatSeo).get("product_main_img") + "", ((Map)mapGreatSeo).get("product_name") + "")));
+               tempContext = tempContext.replaceAll("\\{#meta_keywords}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_name") + desHs[0] + ((Map)mapGreatSeo).get("product_cate3")));
+               tempContext = tempContext.replaceAll("\\{#meta_title}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_name") + desHs[0] + " " + ((Map)mapGreatSeo).get("product_cate2")));
+               tempContext = tempContext.replaceAll("\\{#back_tag_1}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_name") + ((Map)mapGreatSeo).get("product_cate2")));
+
             } else {
                tempContext = tempContext.replaceAll("\\{#back_tag_1}", Matcher.quoteReplacement((String)((Map)mapGreatSeo).get("product_cate3") + ((Map)mapGreatSeo).get("product_name") + ((Map)mapGreatSeo).get("product_cate2")));
                tempContext = tempContext.replaceAll("\\{#meta_title}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("product_cate3") + " " + ((Map)mapGreatSeo).get("product_name") + ((Map)mapGreatSeo).get("product_cate2")));
                tempContext = tempContext.replaceAll("\\{#meta_keywords}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("product_cate3") + " " + ((Map)mapGreatSeo).get("product_name")));
             }
 
-            if (((Map)mapGreatSeo).get("google_desP") != "[]") {
-               tempContext = tempContext.replaceAll("\\{#meta_description}", Matcher.quoteReplacement(greatSeo.getGoogle_desP().get(0) + "" + ((Map)mapGreatSeo).get("product_name") + ((Map)mapGreatSeo).get("product_cate2")));
+            if (desPs.length>0) {
+               tempContext = tempContext.replaceAll("\\{#meta_description}", Matcher.quoteReplacement(desPs[0] + "" + ((Map)mapGreatSeo).get("product_name") + ((Map)mapGreatSeo).get("product_cate2")));
             } else {
                tempContext = tempContext.replaceAll("\\{#meta_description}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("product_cate3") + " " + greatSeo.getProduct_name() + ((Map)mapGreatSeo).get("product_cate2")));
             }
@@ -155,13 +181,14 @@ public class ReadTemp {
             tempContext = tempContext.replaceAll("<h5></h5>", "");
 
             tempContext = tempContext.replaceAll("\\{#view}", Matcher.quoteReplacement(dealWithYouTobe(greatSeo.getUbView(), yuMing) == "" ? "" : dealWithYouTobe(greatSeo.getUbView(), yuMing)));
-            tempContext = tempContext.replaceAll("\\{#youtube}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("ub") == null ? "" : (String)((Map)mapGreatSeo).get("ub")));
-            tempContext = tempContext.replaceAll("\\{#youtube}", Matcher.quoteReplacement(((Map)mapGreatSeo).get("ub") == null ? "" : (String)((Map)mapGreatSeo).get("ub")));
+            tempContext = tempContext.replaceAll("\\{#youtube}", getYoutube_keywords);
             tempContext = tempContext.replaceAll("\\{#rand_title}", "");
          } catch (Exception var18) {
+            var18.printStackTrace();
             System.out.println("报错readTempWriteInto：模板：" + tempCount + "路径：" + yuMing);
          }
       } catch (Exception var19) {
+         var19.printStackTrace();
          System.out.println("报错readTempWriteInto-最后try：模板：" + tempCount + "路径：" + yuMing);
       }
       tempContext = tempContext.replaceAll("\\{#remain_tag_2}","");

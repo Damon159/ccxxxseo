@@ -22,6 +22,25 @@ public class GreatSeo implements Serializable {
    private List google_desH;
    private List google_desP;
    private String google_video;
+   private String keytitles;
+
+   public String getKeytitles() {
+      return keytitles;
+   }
+
+   public void setKeytitles(String keytitles) {
+      this.keytitles = keytitles;
+   }
+
+   public String getDestitle() {
+      return destitle;
+   }
+
+   public void setDestitle(String destitle) {
+      this.destitle = destitle;
+   }
+
+   private String destitle;
    private String remarks;
    private String ub;
    private String ubView;
@@ -157,6 +176,44 @@ public class GreatSeo implements Serializable {
    public List getGoogle_desH() {
       return this.google_desH;
    }
+   private String desimage;
+
+   public String getDesimage() {
+      return desimage;
+   }
+
+   public void setDesimage(String desimage) {
+      this.desimage = desimage;
+   }
+
+   public String getYoutube_keywords() {
+      return youtube_keywords;
+   }
+
+   public void setYoutube_keywords(String youtube_keywords) {
+      this.youtube_keywords = youtube_keywords;
+   }
+
+   public String getGoogle_image_keyword() {
+      return google_image_keyword;
+   }
+
+   public void setGoogle_image_keyword(String google_image_keyword) {
+      this.google_image_keyword = google_image_keyword;
+   }
+
+   public String getProduct_review() {
+      return product_review;
+   }
+
+   public void setProduct_review(String product_review) {
+      this.product_review = product_review;
+   }
+
+   private String youtube_keywords;
+   private String google_image_keyword;
+   private String product_review;
+
 
    public void setGoogle_desH(List google_desH) {
       this.google_desH = google_desH;
