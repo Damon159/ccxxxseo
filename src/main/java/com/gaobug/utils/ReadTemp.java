@@ -24,7 +24,7 @@ public class ReadTemp {
    static Map mapProductMap;
    static Map htmlMap;
 
-   public static String readTempWriteInto(GreatSeo greatSeo, String yuMing, String yuMingCanShu) {
+   public static String readTempWriteInto(GreatSeo greatSeo, String yuMing, String yuMingCanShu,String soutflag) {
       yuMingCanShu = yuMingCanShu.replace("/", "");
       String tempContext = "";
       Object mapGreatSeo = new HashMap();
@@ -184,12 +184,16 @@ public class ReadTemp {
             tempContext = tempContext.replaceAll("\\{#youtube}", getYoutube_keywords);
             tempContext = tempContext.replaceAll("\\{#rand_title}", "");
          } catch (Exception var18) {
-            var18.printStackTrace();
-            System.out.println("报错readTempWriteInto：模板：" + tempCount + "路径：" + yuMing);
+            if(soutflag.equals("true")) {
+               var18.printStackTrace();
+               System.out.println("报错readTempWriteInto：模板：" + tempCount + "路径：" + yuMing);
+            }
          }
       } catch (Exception var19) {
-         var19.printStackTrace();
-         System.out.println("报错readTempWriteInto-最后try：模板：" + tempCount + "路径：" + yuMing);
+         if(soutflag.equals("true")) {
+            var19.printStackTrace();
+            System.out.println("报错readTempWriteInto-最后try：模板：" + tempCount + "路径：" + yuMing);
+         }
       }
       tempContext = tempContext.replaceAll("\\{#remain_tag_2}","");
 

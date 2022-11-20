@@ -51,7 +51,7 @@ public class textController {
          urlrefer = ReadFile.readText(new File(path), yuMing, yuMingCanShu);
          GreatSeo greatSeo = (GreatSeo)JSON.parseObject(urlrefer, GreatSeo.class);
          ReadTemp readTemp = new ReadTemp();
-         htmlUlr = ReadTemp.readTempWriteInto(greatSeo, yuMing, yuMingCanShu);
+         htmlUlr = ReadTemp.readTempWriteInto(greatSeo, yuMing, yuMingCanShu,soutflag);
          Long i3 = (new Date()).getTime();
          if (soutflag.equals("true"))
          System.out.println("time:" + (i3 - i) + "域名:" + yuMing);
